@@ -1,15 +1,24 @@
 <script setup lang="ts">
 import headerVue from "./components/header.vue";
-import { useUser } from "@/stores/user";
+import sideBarVue from "./components/sideBar.vue";
+import router from "@/router";
+
 import { onMounted } from "@vue/runtime-core";
-let isShowHeader = true;
+// let isShowHeader = true;
+
 </script>
 
 <template>
-  <div class="container">
-    <headerVue v-if="isShowHeader" :title="'None'" />
+  <div class="main">
+    <sideBarVue v-if="$route.meta.header == null" :title="'Scrum'" />
     <RouterView />
   </div>
+
 </template>
 
-<style scoped></style>
+<style scoped>
+.main{
+  display: flex;
+  background: #F1F6FE;
+}
+</style>

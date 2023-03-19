@@ -1,25 +1,57 @@
 <script setup lang="ts">
 
 import { ref } from "vue";
-import { useUser } from "@/stores/user";
+// import { useUser } from "@/stores/user";
 
-let username = ref("");
-let password = ref("");
-let checkRememberMe = ref(false);
+// let username = ref("");
+// let password = ref("");
+// let checkRememberMe = ref(false);
 
-const user = useUser;
-function check() {
-  user.state.username = username.value;
-  user.state.password = password.value;
+// const user = useUser;
+// function check() {
+//   user.state.username = username.value;
+//   user.state.password = password.value;
 
-  user.dispatch('login');
-}
+//   user.dispatch('login');
+// }
 </script>
 
 
 
 <template>
-  <div class="login-page">
+
+<div class="d-flex justify-content-between">
+    <div class="p-2 flex-fill bd-highlight logo-index">
+      <img id="icon" src="../assets/icon/Pink_Elegant_Lash_Makeup_Brow_artist_Beauty_Logo__1_-removebg-preview.png">
+    </div>
+  <div class="p-2 flex-fill bd-highlight center">
+    <div class="login-page">
+      <div class="form">
+        <form class="register-form">
+          <input type="text" placeholder="name"/>
+          <input type="password" placeholder="password"/>
+          <input type="text" placeholder="email address"/>
+          <button>create</button>
+          <p class="message">Already registered? <a href="#">Sign In</a></p>
+        </form>
+        <form class="login-form">
+          <input type="text" placeholder="username"/>
+          <input type="password" placeholder="password"/>
+          <router-link to="/home">
+            <button>login</button>
+          </router-link>
+          <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- <div class="login-page">
   <div class="form">
     <img class="mb-4" src="@/assets/logo.svg" alt="" width="72" height="57" />
       <h1 class="h3 mb-3 fw-normal">Please login</h1>
@@ -30,25 +62,53 @@ function check() {
       <input  type="text"
           class="form-control"
           id="floatingInput"
-          v-model="username"
+          
           placeholder="name@example.com"/>
       <input  type="password"
           class="form-control"
           id="floatingPassword"
-          v-model="password"
           placeholder="Password"/>
-      <button @click="check" type="button">login</button>
+      <button type="button">login</button>
     </form>
   </div>
-</div>
+</div> -->
 </template>
 
 <style scoped>
+
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#icon{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  /* width: 50%; */
+}
+.logo-index{
+  /* Rectangle 5 */
+min-height: 100vh;
+width: 663px;
+height: 100%;
+left: 0px;
+top: -14px;
+
+/* LoginPage */
+
+background: linear-gradient(201.34deg, rgba(156, 236, 251, 0.712) 0%, rgba(0, 82, 212, 0.68) 100%);
+backdrop-filter: blur(150px);
+/* Note: backdrop-filter has minimal browser support */
+}
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
   width: 360px;
-  padding: 5% 0 0;
+  padding: 8% 0 0;
   margin: auto;
 }
 .form {
@@ -141,49 +201,5 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
-}
-
-
-
-
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
-}
-
-.form-signin {
-  width: 100%;
-  max-width: 330px;
-  padding: 15px;
-  margin: auto;
-}
-
-.form-signin .checkbox {
-  font-weight: 400;
-}
-
-.form-signin .form-floating:focus-within {
-  z-index: 2;
-}
-
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 </style>

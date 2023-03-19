@@ -6,12 +6,40 @@ const router = createRouter({
     {
       path: "/home",
       name: "home",
-      component: () => import("../views/HomeView.vue"),
+      component: () => import("../views/Home/IndexView.vue"),
+
     },
     {
       path: "/",
       name: "login",
       component: () => import("../views/LoginView.vue"),
+      meta:{
+        header: false
+      }
+    },
+    {
+      path: "/cluster/task",
+      name: "cluster-task",
+      component: () => import("../views/Cluster/TaskView.vue"),
+
+    },
+    {
+      path: "/cluster",
+      name: "cluster",
+      component: () => import("../views/Cluster/IndexView.vue"),
+
+    },
+    {
+      path: "/store",
+      name: "store",
+      component: () => import("../views/Store/IndexView.vue"),
+
+    },
+    {
+      path: "/task",
+      name: "task",
+      component: () => import("../views/Task/IndexView.vue"),
+
     },
   ],
   linkActiveClass: "active",
