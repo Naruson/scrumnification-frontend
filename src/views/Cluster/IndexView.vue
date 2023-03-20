@@ -6,5 +6,7 @@ import router from "@/router";
 </script>
 
 <template>
-    <div>This is Cluster Index Page</div>
+    <div class="conatiner">
+        <div>This is Cluster Index Page</div>
+    </div>
 </template>

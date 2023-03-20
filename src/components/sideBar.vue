@@ -3,7 +3,8 @@ import router from "@/router";
 let role = "admin";
 </script>
 <template>
-        <div id="my-div" class="bg-scrum sidenav stretch d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+  <div class="invi" style="width: 334px; height: auto;">
+        <div id="my-div" class="bg-scrum sidenav stretch d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 334px;">
     <router-link to="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
       <img id="icon" src="../assets/icon/Pink_Elegant_Lash_Makeup_Brow_artist_Beauty_Logo__1_-removebg-preview.png">
       <!-- <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use>       
@@ -62,11 +63,18 @@ let role = "admin";
       </ul>
     </div>
   </div>
+</div>
 </template>
 
 <style scoped>
   /* Set parent container to flex layout and stretch to fill remaining space */
 
+  .invi{
+    background-color: #0052D4;
+    z-index: 1000;
+    position: relative;
+    min-height: 100vh;
+  }
   #icon{
     z-index: 100;
     width: 20%;
@@ -75,13 +83,11 @@ let role = "admin";
   .stretch {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    position: absolute;
+    min-height: 100%;
+    left: 0;
   }
-  /* .sidenav {
-  position: fixed;
-  z-index: 1;
-  overflow-x: hidden;
-} */
+
 .font-scrum{
     font-family: 'Kanit';
 font-style: normal;
@@ -109,6 +115,7 @@ line-height: 54px;
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
   background-color: transparent !important;
+  color: #0052D4 !important;
 }
 body{
   display: flex;

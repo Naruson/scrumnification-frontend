@@ -3,7 +3,6 @@ import router from "@/router";
 
 </script>
 <template>
-
     <div class="box-cluster">
         <div class="d-flex bd-highlight">
             <div class="p-2 flex-fill bd-highlight">
@@ -56,11 +55,11 @@ import router from "@/router";
 }
 .box-cluster{
     /* Rectangle 7 */
-    position: absolute;
-    width: 1119px;
-    height: 256px;
-    left: 376px;
-    top: 56px;
+    /* position: absolute; */
+    width: 1100px;
+    height: 250px;
+    /* left: 392px;
+    top: 56px; */
 
     /* white */
 
