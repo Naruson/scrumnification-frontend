@@ -1,29 +1,24 @@
 <script setup lang="ts">
-import router from "@/router";
-
 </script>
 <template>
     <div class="box-cluster">
-        <div class="d-flex bd-highlight">
-            <div class="p-2 flex-fill bd-highlight">
-            <img class="icon-cluster" src="@/assets/icon/Pink_Elegant_Lash_Makeup_Brow_artist_Beauty_Logo__1_-removebg-preview.png" alt="">
+        <img class="icon-cluster" src="@/assets/icon/Pink_Elegant_Lash_Makeup_Brow_artist_Beauty_Logo__1_-removebg-preview.png" alt="">
+            <div class="text">
+                <div class="name-cluster-coop">Cluster 7 x IV Soft</div>
+                <div class="name-system">ระบบ: จองคิวช่าง</div>
             </div>
-                <div class="p-2 flex-fill bd-highlight">
-                <div class="name-cluster-coop">
-                    Cluster 7 x IV Soft
-                </div>
-                <div class="name-system">
-                    ระบบะ: จองคิวช่าง
-                </div>
-            </div>
-        </div>
     </div>
 </template>
 
 
 
-<style>
+<style scoped>
 
+.text{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+}
 .name-cluster-coop{
     /* Cluster 7 x IV Soft */
     font-family: 'Inter';
@@ -49,13 +44,15 @@ import router from "@/router";
 }
 
 .icon-cluster{
-    width: 80px;
-    height: 80px;
-    margin-left: 200px;
+    width: 180px;
+    height: 180px;
+    left: 20%;
+    position: absolute;
+    top: 15%;
 }
 .box-cluster{
     /* Rectangle 7 */
-    /* position: absolute; */
+    position: relative;
     width: 1100px;
     height: 250px;
     /* left: 392px;
@@ -66,5 +63,6 @@ import router from "@/router";
     background: #FFFFFF;
     box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    overflow: hidden;
 }
 </style>

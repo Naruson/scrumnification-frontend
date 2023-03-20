@@ -11,7 +11,7 @@ import taskBox from "@/components/cluster-task.vue";
 </template>
 
 
-<style>
+<style scoped>
 .invi-box{
     height: 60px;
     color: aqua;

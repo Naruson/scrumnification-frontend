@@ -8,5 +8,8 @@ import router from "@/router";
 <template>
     <div class="conatiner">
         <div>This is Cluster Index Page</div>
+        <router-link to="/cluster/task"> 
+            <button class="btn btn-primary">Task</button>
+        </router-link>
     </div>
 </template>
