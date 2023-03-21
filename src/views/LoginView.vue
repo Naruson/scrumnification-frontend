@@ -95,7 +95,7 @@ min-height: 100vh;
 width: 663px;
 height: 100%;
 left: 0px;
-top: -14px;
+top: 0px;
 
 /* LoginPage */
 

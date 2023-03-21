@@ -24,6 +24,12 @@ const router = createRouter({
 
     },
     {
+      path: "/cluster/check-task",
+      name: "task",
+      component: () => import("@/views/Cluster/CheckTask.vue"),
+
+    },
+    {
       path: "/cluster",
       name: "cluster",
       component: () => import("../views/Cluster/IndexView.vue"),
@@ -41,6 +47,7 @@ const router = createRouter({
       component: () => import("../views/Task/IndexView.vue"),
 
     },
+
   ],
   linkActiveClass: "active",
 });

@@ -5,7 +5,7 @@ import router from "@/router";
 
 </script>
 <template>
-    <div class="container mt-3">
+    <div class="container">
         <div>This is Home Page</div>
     </div>
 </template>
