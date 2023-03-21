@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import router from "@/router";
-let role = "admin";
+let role = localStorage.getItem("role");
 </script>
 <template>
-  <div class="invi" style="width: 334px; height: auto;">
-        <div id="my-div" class="bg-scrum sidenav stretch d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 334px;">
+  <div class="invi">
+        <div id="my-div" class="bg-scrum sidenav stretch d-flex flex-column flex-shrink-0 p-3 bg-light">
     <router-link to="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
       <img id="icon" src="../assets/icon/Pink_Elegant_Lash_Makeup_Brow_artist_Beauty_Logo__1_-removebg-preview.png">
       <!-- <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use>       
@@ -75,15 +75,24 @@ let role = "admin";
     z-index: 1000;
     position: relative;
     min-height: 100vh;
+    /* width: 334px; */
+    max-width: 334px;
+    min-width: 250px;
+    height: auto;
   }
   #icon{
     z-index: 100;
     width: 20%;
     height: auto;
   }
+
+  #my-div{
+    max-width: 334px;
+    min-width: 250px;
+  }
   .stretch {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     position: absolute;
     min-height: 100%;
     left: 0;

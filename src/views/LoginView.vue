@@ -1,6 +1,12 @@
 <script setup lang="ts">
 
 import { ref } from "vue";
+import { useAccount } from "@/stores/accounts";
+import { onMounted } from "vue";
+let username = ref("");
+let password = ref("");
+
+
 // import { useUser } from "@/stores/user";
 
 // let username = ref("");
@@ -14,6 +20,24 @@ import { ref } from "vue";
 
 //   user.dispatch('login');
 // }
+
+function loginAdmin(){
+  localStorage.setItem("role", "admin");
+}
+function loginCoach(){
+  localStorage.setItem("role", "coach");
+}
+function loginLeader(){
+  localStorage.setItem("role", "leader");
+}
+function login(){
+  useAccount.state.username = username.value;
+  useAccount.state.password = password.value;
+
+  console.log(username.value);
+  console.log(password.value);
+  useAccount.dispatch("login");
+}
 </script>
 
 
@@ -21,26 +45,35 @@ import { ref } from "vue";
 <template>
 
 <div class="d-flex justify-content-between">
+
     <div class="p-2 flex-fill bd-highlight logo-index">
       <img id="icon" src="../assets/icon/Pink_Elegant_Lash_Makeup_Brow_artist_Beauty_Logo__1_-removebg-preview.png">
     </div>
+
   <div class="p-2 flex-fill bd-highlight center">
     <div class="login-page">
       <div class="form">
+        <button @click="login()">login</button>
+
         <form class="register-form">
+
           <input type="text" placeholder="name"/>
           <input type="password" placeholder="password"/>
           <input type="text" placeholder="email address"/>
+
           <button>create</button>
-          <p class="message">Already registered? <a href="#">Sign In</a></p>
         </form>
         <form class="login-form">
-          <input type="text" placeholder="username"/>
-          <input type="password" placeholder="password"/>
+          <input type="text" placeholder="username" v-model="username"/>
+          <input type="password" placeholder="password" v-model="password"/>
+
           <router-link to="/home">
-            <button>login</button>
+            <button @click="loginAdmin()">login Admin</button>
+            <button @click="loginLeader()">login Leader</button>
+            <button @click="loginCoach()">login Coach</button>
           </router-link>
           <p class="message">Not registered? <a href="#">Create an account</a></p>
+
         </form>
       </div>
     </div>

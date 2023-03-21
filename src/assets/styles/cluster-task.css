@@ -10,6 +10,20 @@
     border-radius: 5px;
 } */
 
+.se-box {
+    /* Rectangle 1 */
+    box-sizing: border-box;
+    /* position: absolute; */
+    padding: auto;
+    width: 108px;
+    height: 32px;
+    background: #FFFFFF;
+    /* right: 90px; */
+    /* purple3 */
+    border: 1px solid #5151F2;
+    border-radius: 8px;
+}
+
 .table-striped>tbody>tr:nth-of-type(odd)>* {
     --bs-table-accent-bg: rgba(170, 228, 249, 0.34);
 }

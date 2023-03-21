@@ -1,14 +1,35 @@
 <script setup lang="ts">
+import Swal from 'sweetalert2';
+import { onMounted } from "@vue/runtime-core";
+import { useCluster } from "@/stores/clusters";
+
+const cluster = useCluster
+onMounted(() => {
+    cluster.dispatch("getClusterTasks");
+});
+
+function test(){
+    Swal.fire("Example Sweetalert", "", "success");
+}
 </script>   
 <template>
         <div class="box center">
             <font-awesome-icon icon="fa-solid fa-list-check" />
-            <router-link to="/cluster/check-task"><button class="btn"> <font-awesome-icon icon="fa-solid fa-list-check" /> <div class="btn-check-task">check task</div></button></router-link>
+            <router-link to="/cluster/check-task" @click="test">
+                <button class="btn"> 
+                    <font-awesome-icon icon="fa-solid fa-list-check" /> 
+                    <div class="btn-check-task">
+                        check task
+                    </div>
+                </button>
+            </router-link>
             <div class="head1">Task</div>
             <br>
                 <div class="d-flex justify-content-end se">
                     <label for="input SE-Dollar" class="col-sm-2 col-form-label pl">SE Dollar:</label>
-                    <input type="number" class="form-control" id="SE-Dollar" disabled value="1000">
+                    <div class="se-box">
+                      {{ cluster.state.point }}
+                    </div>
                 </div>
                 <br>
             <table class="table table-striped">
@@ -21,31 +42,53 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <td scope="row">1</td>
-                    <td>Scrum</td>
-                    <td>11/01/2023</td>
-                    <td>1000</td>
+                    <tr v-for="(item, index) in cluster.state.tasksTransaction" :key="item._id">
+                    <td scope="row">{{ index + 1 }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.created_at }}</td>
+                    <td>{{ item.point }}</td>
                     </tr>
-                    <tr>
-                    <td scope="row">2</td>
-                    <td>Retro</td>
-                    <td>11/01/2023</td>
-                    <td>5000</td>
-                    </tr>
-                    <tr>
-                    <td scope="row">3</td>
-                    <td>Test</td>
-                    <td>11/01/2023</td>
-                    <td>200</td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
+
+                <!-- <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">ISBN</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(item, index) in task.state.tasks" :key="item._id">
+      <th scope="row">{{ index +1 }}</th>
+      <td>{{ item.name }}</td>
+      <td>{{ item.point}}</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table> -->
+
+
+
 </template>
 
 
 
 <style scoped>
-@import '@/components/cluster-task.css';
+@import '@/assets/styles/cluster-task.css';
 </style>

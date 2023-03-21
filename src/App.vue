@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import headerVue from "./components/header.vue";
 import sideBarVue from "./components/sideBar.vue";
 import router from "@/router";
 
