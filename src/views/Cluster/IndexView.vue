@@ -10,7 +10,6 @@ import router from "@/router";
     <!-- Option 1: Include in HTML -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
-    <div class="container">
         
         <div class="row" >
             <h1 class="col-8">Cluster</h1>
@@ -147,7 +146,6 @@ import router from "@/router";
 </div>
     </div>
 
-    </div>
     
     
 </template>
@@ -311,10 +309,10 @@ import router from "@/router";
 }
          
 </style>
-    <div class="conatiner">
+    <!-- <div class="conatiner">
         <div>This is Cluster Index Page</div>
         <router-link to="/cluster/task"> 
             <button class="btn btn-primary">Task</button>
         </router-link>
     </div>
-</template>
+</template> -->
