@@ -6,41 +6,46 @@ import router from "@/router";
 </script>
 
 <template>
-<<<<<<< HEAD
+
     <div class="box">
     <div class="font" >Store</div>
     <div class="box-table">
         <table>
-            <tr style="background-color: #0052D4; color: rgb(255, 255, 255); border: 1px solid #ddd; " >
+            <tr style="background-color: #0052D4; color: rgb(255, 255, 255); " >
                 <th>#</th>
                 <th >Name</th>
                 <th >Price</th>
                 <th >Action</th>
             </tr>
-            <tr style="border: 1px solid #ddd;">
+            <tr >
                 <td>1</td>
                 <td>Music</td>
                 <td>50</td>
+                <td  class="btn-grad" type="button">Bey</td>
             </tr>
-            <tr style="border: 1px solid #ddd;">
+            <tr >
                 <td>2</td>
                 <td>Guru coding</td>
                 <td>2000</td>
+                <td  class="btn-grad" type="button">Bey</td>
             </tr>
-            <tr style="border: 1px solid #ddd;">
+            <tr >
                 <td>3</td>
                 <td>Server</td>
                 <td>1000</td>
+                <td  class="btn-grad" type="button">Bey</td>
             </tr>
-            <tr style="border: 1px solid #ddd;">
+            <tr >
                 <td>4</td>
                 <td>Forcing different cluster</td>
                 <td>300</td>
+                <td  class="btn-grad" type="button">Bey</td>
             </tr>
-            <tr style="border: 1px solid #ddd;">
+            <tr >
                 <td>5</td>
                 <td>Sleep</td>
                 <td>300</td>
+                <td  class="btn-grad" type="button">Bey</td>
             </tr>
         </table>
     </div>
@@ -54,10 +59,11 @@ import router from "@/router";
     
 }
 .box{
-    height: 500px;
+    height: auto;
     padding-top: 30px;
     padding-left: 50px;
     margin: 20px;
+    padding-bottom: 60px;
     min-height: 100px;
     max-height: 1000px;
     overflow: auto;
@@ -91,48 +97,17 @@ th, td {
   text-align: left;
   border-bottom: 1px solid #ddd;
   }
+  tr{
+    border: 1px solid #ddd;
+    
+
+  }
   .box-table{
     padding-left: 50px;
     padding-right: 50px;
     padding-top:50px ;
   }
-=======
-    <div class="store-box">
-        <div class="h1">Store</div>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Larry the Bird</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
-                </tr>
-            </tbody>
-            </table>
-    </div>
-</template>
 
-<style scoped>
 .h1{
     /* STORE */
     font-family: 'Kanit';
@@ -158,5 +133,29 @@ th, td {
     box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
->>>>>>> c3e930480e4a3b0b4a003ec003dd5558e04dc8bd
+         
+.btn-grad {
+            background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+            width: 80px;
+            height: 40px;
+        
+          }
+
+.btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+        
+}
+         
 </style>

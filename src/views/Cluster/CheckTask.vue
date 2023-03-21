@@ -29,10 +29,11 @@ function save(){
 
 </script>
 <template>
-<<<<<<< HEAD
+
     <div class="div">this is check task page</div>
     
-=======
+
+
         <div class="box-check-task">
             <div class="head1">Check Task</div>
             <br>
@@ -94,7 +95,8 @@ function save(){
                
 
         </div>
->>>>>>> c3e930480e4a3b0b4a003ec003dd5558e04dc8bd
+
+
 </template>
 
 
