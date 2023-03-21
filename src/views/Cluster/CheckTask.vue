@@ -29,11 +29,6 @@ function save(){
 
 </script>
 <template>
-
-    <div class="div">this is check task page</div>
-    
-
-
         <div class="box-check-task">
             <div class="head1">Check Task</div>
             <br>
@@ -95,8 +90,6 @@ function save(){
                
 
         </div>
-
-
 </template>
 
 
