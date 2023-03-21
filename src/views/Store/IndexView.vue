@@ -6,46 +6,47 @@ import router from "@/router";
 </script>
 
 <template>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <div class="box">
     <div class="font" >Store</div>
     <div class="box-table">
-        <table>
-            <tr style="background-color: #0052D4; color: rgb(255, 255, 255); " >
-                <th>#</th>
-                <th >Name</th>
-                <th >Price</th>
-                <th >Action</th>
+        <table class="row">
+            <tr class="row" style="background-color: #0052D4; color: rgb(255, 255, 255); " >
+                <th class="col-3">#</th>
+                <th class="col-4">Name</th>
+                <th class="col-3">Price</th>
+                <th class="col-2">Action</th>
             </tr>
-            <tr >
-                <td>1</td>
-                <td>Music</td>
-                <td>50</td>
-                <td  class="btn-grad" type="button">Bey</td>
+            <tr class="row">
+                <td class="col-3">1</td>
+                <td class="col-4">Music</td>
+                <td class="col-3">50</td>
+                <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
             </tr>
-            <tr >
-                <td>2</td>
-                <td>Guru coding</td>
-                <td>2000</td>
-                <td  class="btn-grad" type="button">Bey</td>
+            <tr class="row">
+                <td class="col-3">2</td>
+                <td class="col-4">Guru coding</td>
+                <td class="col-3">2000</td>
+                <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
             </tr>
-            <tr >
-                <td>3</td>
-                <td>Server</td>
-                <td>1000</td>
-                <td  class="btn-grad" type="button">Bey</td>
+            <tr class="row">
+                <td class="col-3">3</td>
+                <td class="col-4">Server</td>
+                <td class="col-3">1000</td>
+                <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
             </tr>
-            <tr >
-                <td>4</td>
-                <td>Forcing different cluster</td>
-                <td>300</td>
-                <td  class="btn-grad" type="button">Bey</td>
+            <tr class="row">
+                <td class="col-3">4</td>
+                <td class="col-4">Forcing different cluster</td>
+                <td class="col-3">300</td>
+                <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
             </tr>
-            <tr >
-                <td>5</td>
-                <td>Sleep</td>
-                <td>300</td>
-                <td  class="btn-grad" type="button">Bey</td>
+            <tr class="row">
+                <td class="col-3">5</td>
+                <td class="col-4">Sleep</td>
+                <td class="col-3">300</td>
+                <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
             </tr>
         </table>
     </div>
@@ -54,6 +55,7 @@ import router from "@/router";
 </template>
 
 <style scoped>
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 .invi-box{
     height: 60px;
     
@@ -85,6 +87,10 @@ import router from "@/router";
     margin-left: auto;
     margin-right: auto;
     padding-left: 40%;
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
 }
 table {
   border-collapse: collapse;
@@ -92,13 +98,25 @@ table {
   padding: center;
 }
 
-th, td {
+th {
   padding: 8px;
-  text-align: left;
+  text-align: left ;
   border-bottom: 1px solid #ddd;
+  
+  align-content: center;
+
+  }
+td {
+  padding: 8px;
+  text-align: left ;
+  border-bottom: 1px solid #ddd;
+  /* border-radius:10px ; */
+  align-content: center;
+  margin-top: 10px;
   }
   tr{
     border: 1px solid #ddd;
+    border-radius:5px ;
     
 
   }
@@ -108,18 +126,7 @@ th, td {
     padding-top:50px ;
   }
 
-.h1{
-    /* STORE */
-    font-family: 'Kanit';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 60px;
-    /* identical to box height */
 
-
-    color: #0052D4;
-}
 .store-box{
     position: relative;
     text-align: center;
@@ -135,27 +142,36 @@ th, td {
 }
          
 .btn-grad {
-            background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA  51%, #77A1D3  100%);
-            margin: 10px;
-            padding: 15px 45px;
-            text-align: center;
-            text-transform: uppercase;
-            transition: 0.5s;
-            background-size: 200% auto;
-            color: white;            
-            box-shadow: 0 0 20px #eee;
-            border-radius: 10px;
-            display: block;
-            width: 80px;
-            height: 40px;
+    background-image: linear-gradient(to right, #0052D4 0%, #6ECEF3  100%);
+    margin: 10px;
+    /* padding: 15px 45px; */
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 25px;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-self: left;
+    align-items: center;
         
-          }
+    }
 
 .btn-grad:hover {
             background-position: right center; /* change the direction of the change here */
             color: #fff;
             text-decoration: none;
         
+}
+.icon-shop{
+    font-size: 24px;
+    padding-right: 10px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+
 }
          
 </style>
