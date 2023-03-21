@@ -18,14 +18,8 @@ const router = createRouter({
       }
     },
     {
-      path: "/cluster/task",
-      name: "cluster-task",
-      component: () => import("../views/Cluster/TaskView.vue"),
-
-    },
-    {
       path: "/cluster/check-task",
-      name: "task",
+      name: "check-task",
       component: () => import("@/views/Cluster/CheckTask.vue"),
 
     },
@@ -33,6 +27,12 @@ const router = createRouter({
       path: "/cluster",
       name: "cluster",
       component: () => import("../views/Cluster/IndexView.vue"),
+
+    },
+    {
+      path: "/cluster/member",
+      name: "member",
+      component: () => import("@/views/Cluster/member.vue"),
 
     },
     {

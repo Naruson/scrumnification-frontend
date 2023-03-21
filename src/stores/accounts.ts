@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import Vuex from 'vuex';
 
 
-export const useUser =  new Vuex.Store({
+export const useAccount =  new Vuex.Store({
   state: {
     username: "",
     password: "",
@@ -51,9 +51,8 @@ export const useUser =  new Vuex.Store({
     },
     async login() {
       try {
-
         let userLogin = await axios.post(
-          "http://localhost:3000/api/authentication/login",
+          "http://localhost:3000/authenticator/login",
           JSON.stringify({
             username: this.state.username,
             password: this.state.password,
@@ -64,13 +63,19 @@ export const useUser =  new Vuex.Store({
             },
           }
         );
+        console.log(userLogin);
         if (userLogin.status == 200) {
-          localStorage.setItem("access_token", userLogin.data);
+          localStorage.setItem("access_token", userLogin.data.access_token);
+          localStorage.setItem("role", userLogin.data.account.role);
+          localStorage.setItem("cluster_name", userLogin.data.account.cluster_name);
+          localStorage.setItem("cluster_id", userLogin.data.account.cluster_id);
           this.state.isAuthen = true;
-          this.state.access_token = userLogin.data;
+          this.state.access_token = userLogin.data.access_token;
+          this.state.role = userLogin.data.account.role;
+          console.log(userLogin);
 
-          await this.dispatch('getBalance');
-          await this.dispatch('getTransactionHistory');
+          // await this.dispatch('getBalance');
+          // await this.dispatch('getTransactionHistory');
           Swal.fire("Login Success", "", "success");
           router.push("/home");
         }

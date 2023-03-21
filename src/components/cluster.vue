@@ -1,11 +1,22 @@
 <script setup lang="ts">
+
+import { onMounted } from "@vue/runtime-core";
+import { useCluster } from "@/stores/clusters";
+const cluster = useCluster
+console.log("`@/assets/${{ cluster.state.picture }}`");
+onMounted(() => {
+    cluster.dispatch("getClusterById");
+});
+
+
+
 </script>
 <template>
     <div class="box-cluster">
-        <img class="icon-cluster" src="@/assets/icon/Pink_Elegant_Lash_Makeup_Brow_artist_Beauty_Logo__1_-removebg-preview.png" alt="">
+        <img class="icon-cluster" v-bind:src="'http://localhost:3000/' + cluster.state.picture" alt="">
             <div class="text">
-                <div class="name-cluster-coop">Cluster 7 x IV Soft</div>
-                <div class="name-system">ระบบ: จองคิวช่าง</div>
+                <div class="name-cluster-coop">Cluster 7 x {{ cluster.state.coop }}</div>
+                <div class="name-system">ระบบ: {{ cluster.state.systemName }}</div>
             </div>
     </div>
 </template>
