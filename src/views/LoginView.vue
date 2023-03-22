@@ -3,8 +3,14 @@
 import { ref } from "vue";
 import { useAccount } from "@/stores/accounts";
 import { onMounted } from "vue";
+
+
 let username = ref("");
 let password = ref("");
+let email = ref("");
+
+
+
 
 
 // import { useUser } from "@/stores/user";
@@ -54,6 +60,7 @@ function login(){
     <div class="login-page">
       <div class="form">
         <button @click="login()">login</button>
+        if you wanna try username: leaderc0, password: root
 
         <form class="register-form">
 

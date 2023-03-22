@@ -11,8 +11,10 @@ export const useCluster =  new Vuex.Store({
     picture: "",
     coop: "",
     systemName: "",
+    clusterName: "",
     point: "",
     tasksTransaction: [],
+    clusterId: "",
   },
   mutations: {
     updateTasksTransaction(state, payload) {
@@ -27,19 +29,21 @@ export const useCluster =  new Vuex.Store({
     updateCoop(state, payload) {
         state.coop = payload
       },
-    updateSystem_name(state, payload) {
+    updateSystemName(state, payload) {
         state.systemName = payload
+      },
+    updateClusterName(state, payload) {
+        state.clusterName = payload
+      },
+    updateClusterId(state, payload) {
+        state.clusterId = payload
       }
   },
   actions: {
-    async getClusterTasks() {
+    async getClusterTasks({commit}, {clusterId}) {
       try {
-        // if (this.state.access_token == "") {
-        //   this.state.access_token = storageToken
-        // }
-        // if (this.state.access_token == "") return;
-        let cluster_id = localStorage.getItem("cluster_id")
-        let tasks_transaction = await axios.get(`http://localhost:3000/cluster/task/${cluster_id}`, {
+        console.log(clusterId);
+        let tasks_transaction = await axios.get(`http://localhost:3000/cluster/task/${clusterId}`, {
           headers: {
             "Content-Type": "application/json",
             // Authorization: this.state.access_token,
@@ -57,14 +61,14 @@ export const useCluster =  new Vuex.Store({
       }
     },
 
-    async getClusterById() {
+    async getClusterById({commit}, {clusterId}) {
       try {
+
         // if (this.state.access_token == "") {
         //   this.state.access_token = storageToken
         // }
         // if (this.state.access_token == "") return;
-        let cluster_id = localStorage.getItem("cluster_id")
-        let cluster = await axios.get(`http://localhost:3000/cluster/${cluster_id}`, {
+        let cluster = await axios.get(`http://localhost:3000/cluster/${clusterId}`, {
           headers: {
             "Content-Type": "application/json",
             // Authorization: this.state.access_token,
@@ -75,6 +79,7 @@ export const useCluster =  new Vuex.Store({
             this.state.picture = cluster.data.cluster.picture;
             this.state.coop = cluster.data.cluster.coop;
             this.state.systemName = cluster.data.cluster.system_name;
+            this.state.clusterName = cluster.data.cluster.name;
         }
       } catch (e) {
         Swal.fire("Failed", "Failed to get cluster try again later.", "error");

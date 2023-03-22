@@ -67,8 +67,8 @@ export const useAccount =  new Vuex.Store({
         if (userLogin.status == 200) {
           localStorage.setItem("access_token", userLogin.data.access_token);
           localStorage.setItem("role", userLogin.data.account.role);
-          localStorage.setItem("cluster_name", userLogin.data.account.cluster_name);
-          localStorage.setItem("cluster_id", userLogin.data.account.cluster_id);
+          localStorage.setItem("clusterName", userLogin.data.account.cluster_name);
+          localStorage.setItem("clusterId", userLogin.data.account.cluster_id);
           this.state.isAuthen = true;
           this.state.access_token = userLogin.data.access_token;
           this.state.role = userLogin.data.account.role;
@@ -80,7 +80,7 @@ export const useAccount =  new Vuex.Store({
           router.push("/home");
         }
       } catch (e: any) {
-        Swal.fire("Login Fail", "Authenticator Failed", "error");
+        Swal.fire("Login Fail", "Authenticator failed try again later.", "error");
       }
     },  
 }

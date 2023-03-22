@@ -15,6 +15,7 @@
     box-sizing: border-box;
     /* position: absolute; */
     padding: auto;
+    padding-top: 3px;
     width: 108px;
     height: 32px;
     background: #FFFFFF;
@@ -40,9 +41,19 @@
     padding-right: 10%;
 }
 
+.btn-center {
+    text-align: center;
+    padding: auto;
+    margin: auto;
+}
+
 .form-control {
     width: auto;
     /* height: auto; */
+}
+
+.color-white {
+    color: white;
 }
 
 .head1 {
@@ -73,12 +84,16 @@
 .btn {
     /* ButtonDetailCluster */
     position: absolute;
+    text-align: center;
+    justify-content: center;
+    display: flex;
     width: 145px;
     height: 48px;
     left: 935px;
     top: 20px;
     background: linear-gradient(264.65deg, #6ECEF3 4.28%, #0052D4 88.39%);
     border-radius: 20px;
+    border: transparent;
 }
 
 .center {
@@ -90,7 +105,7 @@
     text-align: center;
     position: relative;
     width: 1100px;
-    min-height: 900px;
+    min-height: 600px;
     /* display: flex; */
     padding: 48px 24px;
     /* left: 392px;

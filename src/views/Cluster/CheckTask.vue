@@ -2,12 +2,42 @@
 import { ref } from "vue";
 import router from "@/router";
 import Swal from "sweetalert2";
+import { onMounted } from "vue";
+import { useTask } from "@/stores/tasks";
+
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+
+
+
+let taskStore = useTask;
+
+onMounted(() => {
+    taskStore.dispatch("getTasks");
+});
+
+
+let date = ref("");
+let task = ref("");
+var point = ref("");
+var _id = ref("");
+
 
 function cancel(){
-    router.push('/cluster');
+    router.go(-1);
 }
 
+async function getPoint() {
+    const tasks = taskStore.state.tasks
+    const taskIdToFind = task.value;
+    console.log(taskIdToFind);
+    const taskToFind = tasks.find(task => task._id === taskIdToFind);
+    point.value = taskToFind.point
+    }
+
 function save(){
+
+    console.log(date + '-' + task +'-'+ point);
     Swal.fire({
             title:
                 '<strong style = "font-family:Kanit"> คุณต้องการบันทึก Task ที่ทำหรือไม่? </strong>',
@@ -20,66 +50,53 @@ function save(){
             reverseButtons: true,
         }).then((result) => {
             if (result.isConfirmed) {
-                router.push('/cluster');
+                const path = window.location.pathname;
+                const segments = path.split('/');
+                const clusterIndex = segments.findIndex(segment => segment === 'cluster');
+                const clusterId = segments[clusterIndex + 1];
+                console.log(clusterId);
+
+                taskStore.state.currentTaskId = task;
+                taskStore.state.currentClusterId = clusterId;
+                taskStore.state.currentPoint =  point;
+                taskStore.state.currentCreatedAt = date;
+
+                taskStore.dispatch("checkTask");
+                
+                // router.push('/cluster');
                 console.log('add successfully')
             }
         });
 }
 
-
 </script>
 <template>
         <div class="box-check-task">
             <div class="head1">Check Task</div>
-            <br>
-            <br>
-
-            <label for="cluster" class="label">Cluster :</label>
-            <br>
-            <br>
-            <select name="cluster" class="selector-dropdown p-2">
-            <option value="volvo">cluster</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-            </select>
-
-            <br>
-            <br>
-            <br>
-
             <label for="task" class="label">Date :</label>
             <br>
             <br>
-            <input type="date" class="selector-dropdown p-2">
-
-            <br>
+            <input type="date" class="selector-dropdown p-2" v-model="date">
             <br>
             <br>
 
             <label for="task" class="label">Task :</label>
             <br>
             <br>
-            <select name="task" class="selector-dropdown p-2">
-            <option value="volvo">task</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-            </select>
+            <select name="task" class="selector-dropdown p-2" v-model="task" @change="getPoint">
+            <option v-for="(item, index) in taskStore.state.tasks" :key="item._id" :value="item._id">
+                {{ item.name }}
+            </option>
 
-            <br>
+            </select>
             <br>
             <br>
 
             <label for="point" class="label">Point :</label>
             <br>
             <br>
-            <select name="point" class="selector-dropdown p-2">
-            <option value="volvo">point</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-            </select>
+            <input type="number" name="point" class="selector-dropdown p-2" v-model="point">
+            <!-- <div>value date: {{ date }}, value task: {{ task }},value point: {{ point }}</div> -->
             <br>
             <br>
             <br>
@@ -94,9 +111,10 @@ function save(){
 
 
 <style scoped>
-
+.transparent{
+    background: transparent;
+}
 .button-group{
-    text-align: center;
     position: relative;
     width: 500px;
     height: auto;
@@ -128,14 +146,18 @@ function save(){
 }
 .save{
     /* add tasks */
+    padding-top: 12px;
     text-align: center;
+    justify-content: center;
     width: 200px;
     height: 48px;
     background: linear-gradient(264.65deg, #6ECEF3 4.28%, #0052D4 88.39%);
     border-radius: 20px;
+    border: transparent;
 }
 .cancel{
     /* add tasks */
+    padding-top: 12px;
     text-align: center;
     box-sizing: border-box;
     width: 200px;
@@ -177,7 +199,7 @@ function save(){
     /* position: absolute; */
     background: #FFFFFF;
     width: 60%;
-    height: 50px;
+    height: 45px;
     left: 20%;
     /* purple3 */
 
@@ -190,7 +212,7 @@ function save(){
     text-align: center;
     padding: 48px 24px;
     width: 1100px;
-    min-height: 1000px;
+    min-height: 600px;
 
     /* white */
 

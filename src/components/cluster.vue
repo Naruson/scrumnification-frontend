@@ -3,9 +3,20 @@
 import { onMounted } from "@vue/runtime-core";
 import { useCluster } from "@/stores/clusters";
 const cluster = useCluster
-console.log("`@/assets/${{ cluster.state.picture }}`");
+
+// Get the current URL path
+const path = window.location.pathname;
+// Split the path into an array of segments
+const segments = path.split('/');
+// Find the index of the "cluster" segment
+const clusterIndex = segments.findIndex(segment => segment === 'cluster');
+// Get the clusterId parameter from the next segment
+const clusterId = segments[clusterIndex + 1];
+// Log the value of the clusterId parameter to the console
+console.log(clusterId);
+
 onMounted(() => {
-    cluster.dispatch("getClusterById");
+    cluster.dispatch("getClusterById", {clusterId: clusterId});
 });
 
 
@@ -15,7 +26,7 @@ onMounted(() => {
     <div class="box-cluster">
         <img class="icon-cluster" v-bind:src="'http://localhost:3000/' + cluster.state.picture" alt="">
             <div class="text">
-                <div class="name-cluster-coop">Cluster 7 x {{ cluster.state.coop }}</div>
+                <div class="name-cluster-coop">{{ cluster.state.clusterName }} x {{ cluster.state.coop }}</div>
                 <div class="name-system">ระบบ: {{ cluster.state.systemName }}</div>
             </div>
     </div>

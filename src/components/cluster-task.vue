@@ -3,24 +3,35 @@ import Swal from 'sweetalert2';
 import { onMounted } from "@vue/runtime-core";
 import { useCluster } from "@/stores/clusters";
 
+// Get the current URL path
+const path = window.location.pathname;
+// Split the path into an array of segments
+const segments = path.split('/');
+// Find the index of the "cluster" segment
+const clusterIndex = segments.findIndex(segment => segment === 'cluster');
+// Get the clusterId parameter from the next segment
+const clusterId = segments[clusterIndex + 1];
+// Log the value of the clusterId parameter to the console
+console.log(clusterId);
+
+
+
 const cluster = useCluster
 onMounted(() => {
-    cluster.dispatch("getClusterTasks");
+    cluster.dispatch("getClusterTasks", {clusterId: clusterId});
 });
-
-function test(){
-    Swal.fire("Example Sweetalert", "", "success");
-}
 </script>   
 <template>
         <div class="box center">
             <font-awesome-icon icon="fa-solid fa-list-check" />
-            <router-link to="/cluster/check-task" @click="test">
-                <button class="btn"> 
-                    <font-awesome-icon icon="fa-solid fa-list-check" /> 
-                    <div class="btn-check-task">
-                        check task
-                    </div>
+            <router-link v-bind:to="'/cluster/'+clusterId+'/check-task'">
+                <button class="btn color-white"> 
+                  <div class="btn-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-check" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3.854 2.146a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 3.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708L2 7.293l1.146-1.147a.5.5 0 0 1 .708 0zm0 4a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+                  </svg>
+                  check task
+                  </div>
                 </button>
             </router-link>
             <div class="head1">Task</div>
@@ -52,42 +63,7 @@ function test(){
                 </tbody>
             </table>
         </div>
-
-                <!-- <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Title</th>
-      <th scope="col">ISBN</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr v-for="(item, index) in task.state.tasks" :key="item._id">
-      <th scope="row">{{ index +1 }}</th>
-      <td>{{ item.name }}</td>
-      <td>{{ item.point}}</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table> -->
-
-
-
 </template>
-
-
 
 <style scoped>
 @import '@/assets/styles/cluster-task.css';

@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import sideBarVue from "./components/sideBar.vue";
-import router from "@/router";
-
-import { onMounted } from "@vue/runtime-core";
 // let isShowHeader = true;
 
 </script>

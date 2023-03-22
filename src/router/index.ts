@@ -18,7 +18,7 @@ const router = createRouter({
       }
     },
     {
-      path: "/cluster/check-task",
+      path: "/cluster/:clusterId/check-task",
       name: "check-task",
       component: () => import("@/views/Cluster/CheckTask.vue"),
 
@@ -30,9 +30,15 @@ const router = createRouter({
 
     },
     {
+      path: "/cluster/:clusterId/task",
+      name: "cluster-detail",
+      component: () => import("../views/Cluster/ClusterTask.vue"),
+
+    },
+    {
       path: "/cluster/member",
       name: "member",
-      component: () => import("@/views/Cluster/member.vue"),
+      component: () => import("@/views/Cluster/Member.vue"),
 
     },
     {

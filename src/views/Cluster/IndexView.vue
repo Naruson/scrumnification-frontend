@@ -2,154 +2,154 @@
 import { ref } from "vue";
 import clusterComponent from "@/components/cluster.vue";
 import taskComponent from "@/components/cluster-task.vue";
+import router from "@/router";
 let role = localStorage.getItem("role");
 
+function clickClusterDetail(){
+    const clusterId0 = '64189a3d9979072da0be5249';
+    router.push(`/cluster/${clusterId0}/task`);
+
+}
 
 </script>
 <template>
-        <clusterComponent v-if="role === 'leader' || role === 'coach'"/>
-        <div class="invi-box" v-if="role === 'leader' || role === 'coach'"></div>
-        <taskComponent v-if="role === 'leader' || role === 'coach'"/>
-
-        <div> 
+        <div v-if="role === 'admin'"> 
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-
-        
-        <div class="row" >
-            <h1 class="col-8">Cluster</h1>
-            <button class="btn-add"><i class="bi bi-list-check icon-add" ></i>Add Team</button>
+                <div class="row" >
+                    <h1 class="col-8">Cluster</h1>
+                    <button class="btn-add"><i class="bi bi-list-check icon-add" ></i>Add Team</button>
+                </div>
+                
+            <div class="row">
+                <div class="card col-6" style="max-width: 500px;">
+            <div class="row g-0">
+                <div class="col-sm-5">
+                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" alt="...">
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5>Cluster 0</h5> 
+                        <p>IV soft</p>
+                        <p>ระบบจัดการงาน</p>
+                        <div class="btn-grad stretched-link" @click="clickClusterDetail()"><i class="bi bi-list-ul icon-detail"></i>Details</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-    <div class="row" v-if="role === 'admin'">
         <div class="card col-6" style="max-width: 500px;">
-    <div class="row g-0">
-        <div class="col-sm-5">
-            <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" alt="...">
-        </div>
-        <div class="col-sm-7">
-            <div class="card-body">
-                <h5>Cluster 0</h5> 
-                <p>IV soft</p>
-                <p>ระบบจัดการงาน</p>
-                <a href="#" class="btn-grad stretched-link"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+            <div class="row g-0">
+                <div class="col-sm-5">
+                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" alt="...">
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5>Cluster 0</h5> 
+                        <p>IV soft</p>
+                        <p>ระบบจัดการงาน</p>
+                        <a href="#" class="btn-grad stretched-link"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="card col-6" style="max-width: 500px;">
-    <div class="row g-0">
-        <div class="col-sm-5">
-            <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" alt="...">
-        </div>
-        <div class="col-sm-7">
-            <div class="card-body">
-                <h5>Cluster 0</h5> 
-                <p>IV soft</p>
-                <p>ระบบจัดการงาน</p>
-                <a href="#" class="btn-grad stretched-link"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+            </div>
+            <div class="row">
+        <div class="card col-6" style="max-width: 500px;">
+            <div class="row g-0">
+                <div class="col-sm-5">
+                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" alt="...">
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5>Cluster 0</h5> 
+                        <p>IV soft</p>
+                        <p>ระบบจัดการงาน</p>
+                        <a href="#" class="btn-grad stretched-link"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-    </div>
-    <div class="row">
-<div class="card col-6" style="max-width: 500px;">
-    <div class="row g-0">
-        <div class="col-sm-5">
-            <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" alt="...">
-        </div>
-        <div class="col-sm-7">
-            <div class="card-body">
-                <h5>Cluster 0</h5> 
-                <p>IV soft</p>
-                <p>ระบบจัดการงาน</p>
-                <a href="#" class="btn-grad stretched-link"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+        <div class="card col-6" style="max-width: 500px;">
+            <div class="row g-0">
+                <div class="col-sm-5">
+                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" >
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5>Cluster 0</h5> 
+                        <p>IV soft</p>
+                        <p>ระบบจัดการงาน</p>
+                        <a href="#" class="btn-grad stretched-link"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="card col-6" style="max-width: 500px;">
-    <div class="row g-0">
-        <div class="col-sm-5">
-            <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" >
-        </div>
-        <div class="col-sm-7">
-            <div class="card-body">
-                <h5>Cluster 0</h5> 
-                <p>IV soft</p>
-                <p>ระบบจัดการงาน</p>
-                <a href="#" class="btn-grad stretched-link"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+            </div>
+            <div class="row">
+        <div class="card col-6" style="max-width: 500px;">
+            <div class="row g-0">
+                <div class="col-sm-5">
+                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" >
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5>Cluster 0</h5> 
+                        <p>IV soft</p>
+                        <p>ระบบจัดการงาน</p>
+                        <a href="#" class="btn-grad stretched-link"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-    </div>
-    <div class="row">
-<div class="card col-6" style="max-width: 500px;">
-    <div class="row g-0">
-        <div class="col-sm-5">
-            <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" >
-        </div>
-        <div class="col-sm-7">
-            <div class="card-body">
-                <h5>Cluster 0</h5> 
-                <p>IV soft</p>
-                <p>ระบบจัดการงาน</p>
-                <a href="#" class="btn-grad stretched-link"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+        <div class="card col-6" style="max-width: 500px;">
+            <div class="row g-0">
+                <div class="col-sm-5">
+                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" >
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5>Cluster 0</h5> 
+                        <p>IV soft</p>
+                        <p>ระบบจัดการงาน</p>
+                        <a href="#" class="btn-grad stretched-link"> <i class="bi bi-list-ul icon-detail"></i>Details</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="card col-6" style="max-width: 500px;">
-    <div class="row g-0">
-        <div class="col-sm-5">
-            <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" >
-        </div>
-        <div class="col-sm-7">
-            <div class="card-body">
-                <h5>Cluster 0</h5> 
-                <p>IV soft</p>
-                <p>ระบบจัดการงาน</p>
-                <a href="#" class="btn-grad stretched-link"> <i class="bi bi-list-ul icon-detail"></i>Details</a>
             </div>
-        </div>
-    </div>
-</div>
-    </div>
 
-    <div class="row">
-<div class="card col-6" style="max-width: 500px;">
-    <div class="row g-0">
-        <div class="col-sm-5">
-            <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" >
-        </div>
-        <div class="col-sm-7">
-            <div class="card-body">
-                <h5>Cluster 0</h5> 
-                <p>IV soft</p>
-                <p>ระบบจัดการงาน</p>
-                <a href="#" class="btn-grad stretched-link"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+            <div class="row">
+        <div class="card col-6" style="max-width: 500px;">
+            <div class="row g-0">
+                <div class="col-sm-5">
+                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" >
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5>Cluster 0</h5> 
+                        <p>IV soft</p>
+                        <p>ระบบจัดการงาน</p>
+                        <a href="#" class="btn-grad stretched-link"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<div class="card col-6" style="max-width: 500px;">
-    <div class="row g-0">
-        <div class="col-sm-5">
-            <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" >
-        </div>
-        <div class="col-sm-7">
-            <div class="card-body">
-                <h5>Cluster 0</h5> 
-                <p>IV soft</p>
-                <p>ระบบจัดการงาน</p>
-                <a href="#" class="stretched-link btn-grad"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+        <div class="card col-6" style="max-width: 500px;">
+            <div class="row g-0">
+                <div class="col-sm-5">
+                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" >
+                </div>
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5>Cluster 0</h5> 
+                        <p>IV soft</p>
+                        <p>ระบบจัดการงาน</p>
+                        <a href="#" class="stretched-link btn-grad"><i class="bi bi-list-ul icon-detail"></i>Details</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-    </div>
-        </div>
+            </div>
+                </div>
 
         
 </template>
