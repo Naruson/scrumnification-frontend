@@ -53,6 +53,11 @@ const router = createRouter({
       component: () => import("../views/Task/IndexView.vue"),
 
     },
+    {
+      path: "/store/notification",
+      name: "store_notification",
+      component: () => import("../views/Store/notification.vue"),
+    },
 
   ],
   linkActiveClass: "active",
