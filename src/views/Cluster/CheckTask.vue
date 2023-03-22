@@ -60,7 +60,6 @@ function save(){
                 taskStore.state.currentClusterId = clusterId;
                 taskStore.state.currentPoint =  point;
                 taskStore.state.currentCreatedAt = date;
-
                 taskStore.dispatch("checkTask");
                 
                 // router.push('/cluster');
@@ -73,7 +72,7 @@ function save(){
 </script>
 <template>
         <div class="box-check-task">
-            <form>
+            <form @submit.prevent="">
                 <div class="head1">Check Task</div>
                 <label for="task" class="label">Date :</label>
                 <br>
@@ -149,7 +148,6 @@ function save(){
 }
 .save{
     /* add tasks */
-    padding-top: 12px;
     text-align: center;
     justify-content: center;
     width: 200px;

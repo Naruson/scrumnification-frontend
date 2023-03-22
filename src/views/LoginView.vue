@@ -68,10 +68,12 @@ function login(){
     <div class="login-page">
       <div class="form">
         <button @click="login()">login</button>
-        if you wanna try username: leaderc0, password: root
-
+        try this!
+        <br>
+        username: admin, password: root
+        username:coachc0, password: root
+        username: leaderc0, password: root
         <form class="register-form">
-
           <input type="text" placeholder="name"/>
           <input type="password" placeholder="password"/>
           <input type="text" placeholder="email address"/>
@@ -87,7 +89,7 @@ function login(){
             <button @click="loginLeader()">login Leader</button>
             <button @click="loginCoach()">login Coach</button>
           </router-link>
-          <p class="message">Not registered? <a href="#">Create an account</a></p>
+          <!-- <p class="message">ขี้เกียจ login? <router-link to="/home" >Click me</router-link></p> -->
 
         </form>
       </div>

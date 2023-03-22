@@ -2,7 +2,13 @@
 import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import router from "@/router";
+import { useTask } from "@/stores/tasks";
 
+let taskStore = useTask;
+
+onMounted(() => {
+    taskStore.dispatch('getTasks');
+})
 </script>
 
 <template>
@@ -12,29 +18,22 @@ import router from "@/router";
             <thead>
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">task name</th>
+                <th scope="col">point</th>
+                <th scope="col">action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Larry the Bird</td>
-                <td>@twitter</td>
-                <td>@twitter</td>
+                <tr v-for="(item, index) in taskStore.state.tasks" :key="item._id">
+                <th scope="row">{{ index+1 }}</th>
+                <td>{{ item.name }}</td>
+                <td>{{item.point  }}</td>
+                <td>
+                    <div class="div flex">
+                        <button class="btn btn-primary">primary</button>
+                        <button class="btn btn-danger">danger</button>
+                    </div>
+                </td>
                 </tr>
             </tbody>
             </table>

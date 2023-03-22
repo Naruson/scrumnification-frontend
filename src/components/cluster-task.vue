@@ -35,14 +35,12 @@ onMounted(() => {
                 </button>
             </router-link>
             <div class="head1">Task</div>
-            <br>
                 <div class="d-flex justify-content-end se">
                     <label for="input SE-Dollar" class="col-sm-2 col-form-label pl">SE Dollar:</label>
                     <div class="se-box">
                       {{ cluster.state.point }}
                     </div>
                 </div>
-                <br>
             <table class="table table-striped">
                 <thead>
                     <tr style="background-color: #0052D4; color: rgb(255, 255, 255);">
