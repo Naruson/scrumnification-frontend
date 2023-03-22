@@ -36,9 +36,9 @@ async function getPoint() {
     }
 
 function save(){
-
     console.log(date + '-' + task +'-'+ point);
-    Swal.fire({
+    if(date.value != "" && task.value != "" && point.value != ""){
+        Swal.fire({
             title:
                 '<strong style = "font-family:Kanit"> คุณต้องการบันทึก Task ที่ทำหรือไม่? </strong>',
             icon: 'warning',
@@ -67,43 +67,46 @@ function save(){
                 console.log('add successfully')
             }
         });
+    }
 }
 
 </script>
 <template>
         <div class="box-check-task">
-            <div class="head1">Check Task</div>
-            <label for="task" class="label">Date :</label>
-            <br>
-            <br>
-            <input type="date" class="selector-dropdown p-2" v-model="date">
-            <br>
-            <br>
+            <form>
+                <div class="head1">Check Task</div>
+                <label for="task" class="label">Date :</label>
+                <br>
+                <br>
+                <input type="date" class="selector-dropdown p-2" v-model="date" required>
+                <br>
+                <br>
 
-            <label for="task" class="label">Task :</label>
-            <br>
-            <br>
-            <select name="task" class="selector-dropdown p-2" v-model="task" @change="getPoint">
-            <option v-for="(item, index) in taskStore.state.tasks" :key="item._id" :value="item._id">
-                {{ item.name }}
-            </option>
+                <label for="task" class="label">Task :</label>
+                <br>
+                <br>
+                <select name="task" class="selector-dropdown p-2" v-model="task" @change="getPoint" required>
+                <option v-for="(item, index) in taskStore.state.tasks" :key="item._id" :value="item._id">
+                    {{ item.name }}
+                </option>
 
-            </select>
-            <br>
-            <br>
+                </select>
+                <br>
+                <br>
 
-            <label for="point" class="label">Point :</label>
-            <br>
-            <br>
-            <input type="number" name="point" class="selector-dropdown p-2" v-model="point">
-            <!-- <div>value date: {{ date }}, value task: {{ task }},value point: {{ point }}</div> -->
-            <br>
-            <br>
-            <br>
-            <div class="button-group d-flex justify-content-between">
-                <div class="btn cancel font-btn-cancel" @click="cancel()">cancel</div>                
-                <div class="btn save font-btn-save" @click="save()">Save</div>  
-            </div>
+                <label for="point" class="label">Point :</label>
+                <br>
+                <br>
+                <input type="number" name="point" class="selector-dropdown p-2" v-model="point" required>
+                <!-- <div>value date: {{ date }}, value task: {{ task }},value point: {{ point }}</div> -->
+                <br>
+                <br>
+                <br>
+                <div class="button-group d-flex justify-content-between">
+                    <div class="btn cancel font-btn-cancel" @click="cancel()">cancel</div>                
+                    <button type="submit" class="btn save font-btn-save" @click="save()">Save</button>  
+                </div>
+            </form>
                
 
         </div>

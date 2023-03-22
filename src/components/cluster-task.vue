@@ -2,29 +2,29 @@
 import Swal from 'sweetalert2';
 import { onMounted } from "@vue/runtime-core";
 import { useCluster } from "@/stores/clusters";
+import { ref } from 'vue';
 
+let role = ref("");
 // Get the current URL path
 const path = window.location.pathname;
-// Split the path into an array of segments
 const segments = path.split('/');
-// Find the index of the "cluster" segment
 const clusterIndex = segments.findIndex(segment => segment === 'cluster');
-// Get the clusterId parameter from the next segment
 const clusterId = segments[clusterIndex + 1];
-// Log the value of the clusterId parameter to the console
 console.log(clusterId);
 
 
 
 const cluster = useCluster
 onMounted(() => {
+    role = localStorage.getItem('role');
+    console.log('role: '+ role);
     cluster.dispatch("getClusterTasks", {clusterId: clusterId});
 });
 </script>   
 <template>
         <div class="box center">
             <font-awesome-icon icon="fa-solid fa-list-check" />
-            <router-link v-bind:to="'/cluster/'+clusterId+'/check-task'">
+            <router-link v-bind:to="'/cluster/'+clusterId+'/check-task'" v-if="role == 'coach'">
                 <button class="btn color-white"> 
                   <div class="btn-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-check" viewBox="0 0 16 16">
@@ -45,7 +45,7 @@ onMounted(() => {
                 <br>
             <table class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr style="background-color: #0052D4; color: rgb(255, 255, 255);">
                     <th scope="col">No.</th>
                     <th scope="col">Name</th>
                     <th scope="col">Date</th>

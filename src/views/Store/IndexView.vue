@@ -117,8 +117,6 @@ td {
   tr{
     border: 1px solid #ddd;
     border-radius:5px ;
-    
-
   }
   .box-table{
     padding-left: 50px;

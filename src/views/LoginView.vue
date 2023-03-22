@@ -3,6 +3,14 @@
 import { ref } from "vue";
 import { useAccount } from "@/stores/accounts";
 import { onMounted } from "vue";
+import router from "@/router";
+
+onMounted(() => {
+  let authen = localStorage.getItem('isAuthen');
+  if(authen === "true"){
+    router.push('/home');
+  }
+});
 
 
 let username = ref("");

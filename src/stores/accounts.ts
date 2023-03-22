@@ -69,6 +69,7 @@ export const useAccount =  new Vuex.Store({
           localStorage.setItem("role", userLogin.data.account.role);
           localStorage.setItem("clusterName", userLogin.data.account.cluster_name);
           localStorage.setItem("clusterId", userLogin.data.account.cluster_id);
+          localStorage.setItem("isAuthen", "true");
           this.state.isAuthen = true;
           this.state.access_token = userLogin.data.access_token;
           this.state.role = userLogin.data.account.role;

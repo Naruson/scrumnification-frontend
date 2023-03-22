@@ -5,6 +5,9 @@ const clusterId = localStorage.getItem('clusterId');
 function clickClusterSideBar(){
   const clusterId = localStorage.getItem('clusterId');
 }
+function logout(){
+  localStorage.setItem('isAuthen','false');
+}
 </script>
 <template>
   <div class="invi">
@@ -68,10 +71,10 @@ function clickClusterSideBar(){
     <div class="dropdown">
       <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
         <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>Admin</strong>
+        <strong>{{ role }}</strong>
       </a>
       <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-        <li><router-link to="/" class="dropdown-item" href="#">Sign out</router-link></li>
+        <li><router-link to="/" class="dropdown-item" @click="logout">Sign out</router-link></li>
       </ul>
     </div>
   </div>

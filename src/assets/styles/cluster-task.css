@@ -116,3 +116,38 @@
     border-radius: 10px;
     overflow: hidden;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    padding: center;
+}
+
+th {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    align-content: center;
+}
+
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    /* border-radius:10px ; */
+    align-content: center;
+    margin-top: 10px;
+}
+
+tr {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    /* background-color: #0052D4; */
+    /* color: rgb(255, 255, 255); */
+}
+
+.box-table {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+}
