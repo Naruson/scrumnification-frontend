@@ -77,7 +77,13 @@ export const useAccount =  new Vuex.Store({
 
           // await this.dispatch('getBalance');
           // await this.dispatch('getTransactionHistory');
-          Swal.fire("Login Success", "", "success");
+          // Swal.fire("Login Success", "", "success");
+          Swal.fire({
+            icon: 'success',
+            title: 'Login Success',
+            showConfirmButton: false,
+            timer: 1500
+          })
           router.push("/home");
         }
       } catch (e: any) {

@@ -40,12 +40,12 @@ function save(){
     if(date.value != "" && task.value != "" && point.value != ""){
         Swal.fire({
             title:
-                '<strong style = "font-family:Kanit"> คุณต้องการบันทึก Task ที่ทำหรือไม่? </strong>',
+                '<strong style = "font-family:Kanit"> Are you sure to check task? </strong>',
             icon: 'warning',
             showCancelButton: true,
             cancelButtonColor: '#d33',
-            cancelButtonText: '<div style = "font-family:Kanit"> ยกเลิก </div>',
-            confirmButtonText: '<div style = "font-family:Kanit"> ตกลง </div>',
+            cancelButtonText: '<div style = "font-family:Kanit"> Cancel </div>',
+            confirmButtonText: '<div style = "font-family:Kanit"> Ok </div>',
             confirmButtonColor: '#005FBC',
             reverseButtons: true,
         }).then((result) => {

@@ -2,6 +2,15 @@
 import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import router from "@/router";
+import { useShop } from "@/stores/shop";
+let role = ref("");
+
+let shopStore = useShop;
+
+onMounted(() => {
+    role = localStorage.getItem('role');
+    shopStore.dispatch('getShops');
+})
 
 </script>
 
@@ -9,7 +18,7 @@ import router from "@/router";
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <div class="box">
-    <div class="font" >Store</div>
+    <div class="font">Store</div>
     <div class="box-table">
         <table class="row">
             <tr class="row" style="background-color: #0052D4; color: rgb(255, 255, 255); " >
@@ -18,34 +27,10 @@ import router from "@/router";
                 <th class="col-3">Price</th>
                 <th class="col-2">Action</th>
             </tr>
-            <tr class="row">
-                <td class="col-3">1</td>
-                <td class="col-4">Music</td>
-                <td class="col-3">50</td>
-                <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
-            </tr>
-            <tr class="row">
-                <td class="col-3">2</td>
-                <td class="col-4">Guru coding</td>
-                <td class="col-3">2000</td>
-                <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
-            </tr>
-            <tr class="row">
-                <td class="col-3">3</td>
-                <td class="col-4">Server</td>
-                <td class="col-3">1000</td>
-                <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
-            </tr>
-            <tr class="row">
-                <td class="col-3">4</td>
-                <td class="col-4">Forcing different cluster</td>
-                <td class="col-3">300</td>
-                <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
-            </tr>
-            <tr class="row">
-                <td class="col-3">5</td>
-                <td class="col-4">Sleep</td>
-                <td class="col-3">300</td>
+            <tr class="row" v-for="(item, index) in shopStore.state.shopList" :key="item._id">
+                <td class="col-3">{{ index+1 }}</td>
+                <td class="col-4">{{ item.name }}</td>
+                <td class="col-3">{{ item.point }}</td>
                 <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
             </tr>
         </table>
@@ -79,6 +64,7 @@ import router from "@/router";
     /* display: flex; */
     justify-content: center;
     padding-right: 50px;
+    min-height: 600px;
             
     }
 .font{

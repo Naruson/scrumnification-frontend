@@ -15,6 +15,7 @@ export const useCluster =  new Vuex.Store({
     point: "",
     tasksTransaction: [],
     clusterId: "",
+    clusterList: [],
   },
   mutations: {
     updateTasksTransaction(state, payload) {
@@ -37,9 +38,30 @@ export const useCluster =  new Vuex.Store({
       },
     updateClusterId(state, payload) {
         state.clusterId = payload
+      },
+    updateclusterList(state, payload) {
+        state.clusterList = payload
       }
   },
   actions: {
+    async getClusters() {
+      try {
+        let clusters = await axios.get(`http://localhost:3000/cluster`, {
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: this.state.access_token,
+          },
+        });
+        console.log(clusters.data);
+        if(clusters.status === 200){
+            this.state.clusterList = clusters.data.clusters;
+            console.log(this.state.clusterList);
+        }
+      } catch (e) {
+        // this.state.isAuthen = false;
+        // Swal.fire("Failed", "Failed to get tasks transaction again later.", "error");
+      }
+    },
     async getClusterTasks({commit}, {clusterId}) {
       try {
         console.log(clusterId);
