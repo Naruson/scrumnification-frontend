@@ -35,82 +35,86 @@ function buy(_id){
 </script>
 
 <template>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <div class="box">
+        <router-link to="/store/notification">
+            <div class="btn btn-primary btn-notification">Notification</div>
+        </router-link>
     <div class="font">Store</div>
-    <div class="box-table">
-        <table class="row">
-            <tr class="row" style="background-color: #0052D4; color: rgb(255, 255, 255); " >
-                <th class="col-3">#</th>
-                <th class="col-4">Name</th>
-                <th class="col-3">Price</th>
-                <th class="col-2" v-if="role === 'leader'">Action</th>
-            </tr>
-            <tr class="row" v-for="(item, index) in shopStore.state.shopList" :key="item._id">
-                <td class="col-3">{{ index+1 }}</td>
-                <td class="col-4">{{ item.name }}</td>
-                <td class="col-3">{{ item.point }}</td>
-                <td  class="btn-grad col-2" type="button" v-if="role === 'leader'"><i class="bi bi-cart3 icon-shop" @click="buy(item._id)"></i>Buy</td>
-            </tr>
-        </table>
-    </div>
+        <div class="box-table">
+            <table v-if="role === 'leader'">
+                <tr class="row" style="background-color: #0052D4; color: rgb(255, 255, 255); ">
+                        <th class="col-3">No.</th>
+                        <th class="col-4">Name</th>
+                        <th class="col-3">Price</th>
+                        <th class="col-2">Action</th>
+                </tr>
+                <tr class="row" v-for="(item, index) in shopStore.state.shopList" :key="item._id">
+                    <td class="col-3">{{ index+1 }}</td>
+                    <td class="col-4">{{ item.name }}</td>
+                    <td class="col-3">{{ item.point }}</td>
+                    <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop" @click="buy(item._id)"></i>Buy</td>
+                </tr>
+            </table>
+            <table v-if="role !== 'leader'">
+                <tr class="row" style="background-color: #0052D4; color: rgb(255, 255, 255); ">
+                        <th class="col-4">#</th>
+                        <th class="col-4">Name</th>
+                        <th class="col-4">Price</th>
+                </tr>
+                <tr class="row" v-for="(item, index) in shopStore.state.shopList" :key="item._id">
+                    <td class="col-4">{{ index+1 }}</td>
+                    <td class="col-4">{{ item.name }}</td>
+                    <td class="col-4">{{ item.point }}</td>
+                </tr>
+            </table>
+        </div>
     </div>
 
 </template>
 
 <style scoped>
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
-.invi-box{
-    height: 60px;
-    
+.btn{
+    position: absolute;
+    right: 5%;
+    top: 5%;
 }
+
 .box{
-    height: auto;
-    padding-top: 30px;
-    padding-left: 50px;
-    margin: 20px;
-    padding-bottom: 60px;
-    min-height: 100px;
-    max-height: 1000px;
-    overflow: auto;
-    border-style: solid;
-    border-width: 2px;
-    background-clip: padding-box;
-    border-color: #0052D4;
-    background-color: rgb(255, 255, 255);
-    border-radius: 15px;
-    flex-direction: column-reverse;
-    /* display: flex; */
-    justify-content: center;
-    padding-right: 50px;
+    position: relative;
+    text-align: center;
+    padding: 48px 24px;
+    width: 1100px;
     min-height: 600px;
+
+    /* white */
+
+    background: #FFFFFF;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
             
     }
 .font{
     color: #0052D4;
     font-size: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 40%;
     font-family: 'Kanit';
     font-style: normal;
     font-weight: 700;
     line-height: 60px;
 }
 table {
+margin-top: 24px;
   border-collapse: collapse;
   width: 100%;
-  padding: center;
+  /* padding: center; */
+  /* position: static; */
 }
 
 th {
   padding: 8px;
   text-align: left ;
   border-bottom: 1px solid #ddd;
-  
   align-content: center;
-
   }
 td {
   padding: 8px;
@@ -124,26 +128,7 @@ td {
     border: 1px solid #ddd;
     border-radius:5px ;
   }
-  .box-table{
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top:50px ;
-  }
-
-
-.store-box{
-    position: relative;
-    text-align: center;
-    padding: 48px 24px;
-    width: 1100px;
-    min-height: 1000px;
-
-    /* white */
-
-    background: #FFFFFF;
-    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-}
+ 
          
 .btn-grad {
     background-image: linear-gradient(to right, #0052D4 0%, #6ECEF3  100%);
@@ -175,7 +160,9 @@ td {
     padding-right: 10px;
     margin-left: 5px;
     margin-bottom: 10px;
-
+}
+.box-table{
+    margin: 0 12px;
 }
          
 </style>
