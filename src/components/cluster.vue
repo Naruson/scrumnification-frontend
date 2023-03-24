@@ -5,7 +5,7 @@ import { useCluster } from "@/stores/clusters";
 
 import router from "@/router";
 const cluster = useCluster
-
+let role = localStorage.getItem("role");
 // Get the current URL path
 const path = window.location.pathname;
 // Split the path into an array of segments
@@ -21,17 +21,9 @@ onMounted(() => {
 });
 
 function clickClusterMember(_id){
-    // const clusterId0 = '64189a3d9979072da0be5249';
     router.push(`/cluster/${_id}/member`);
-    // const button = document.querySelector('.hide');
-    // button.style.display = 'none';
-
-    // router.go(-1)
 }
 function clickBack(){
-
-    // const clusterId0 = '64189a3d9979072da0be5249';
-    // router.push(`/cluster/${_id}/task`);
     router.go(-1)
 }
 
@@ -40,8 +32,10 @@ function clickBack(){
 <template>
     <div class="box-cluster">
         <div class="d-flex justify-content-between">
-            <div @click="clickBack()"  class="icon-back"><i class="bi bi-chevron-left "></i></div>
-            <div  v-if=" $route.name  != 'member'" class="btn-grad hide" @click="clickClusterMember(clusterId)"><i class="bi bi-list-ul icon-detail"></i>Details Cluster</div>
+            <div v-if="role === 'admin'" @click="clickBack()"  class="icon-back"><i class="bi bi-chevron-left "></i></div>
+            <div v-else-if="role === 'leader' && $route.name  != 'cluster-detail'" @click="clickBack()"  class="icon-back"><i class="bi bi-chevron-left "></i></div>
+            <div v-else-if="role === 'coach' && $route.name  != 'cluster-detail'" @click="clickBack()"  class="icon-back"><i class="bi bi-chevron-left "></i></div>
+            <div  v-if=" $route.name  != 'member'" class="btn-grad" @click="clickClusterMember(clusterId)"><i class="bi bi-list-ul icon-detail"></i>Details Cluster</div>
             
         </div>
 
@@ -112,6 +106,7 @@ function clickBack(){
     border-radius: 10px;
     overflow: hidden;
     margin-top: 20px;
+    
 }
 .btn-grad {
     height: 45px;
@@ -128,6 +123,7 @@ function clickBack(){
     justify-self: left;
     align-items: center;
     margin-top: 20px;
+    margin-left: auto;
 }
 .btn-grad:hover {
     background-position: right center; /* change the direction of the change here */
@@ -156,6 +152,9 @@ function clickBack(){
     color: #0052D4;
     text-decoration: none;
 }
-      
+.bi-chevron-left{
+    font-size: 28px;
+    -webkit-text-stroke: 2px;
+}     
 
 </style>

@@ -30,7 +30,7 @@ function clickClusterDetail(_id){
                 </div>
                 
             <div class="row">
-                <div class="card col-6" style="max-width: 500px;" v-for="(item, index) in clusterStore.state.clusterList" :key="item._id">
+                <div class="card col-6 card-hover" style="max-width: 500px;" v-for="(item, index) in clusterStore.state.clusterList" :key="item._id" @click="clickClusterDetail(item._id)">
             <div class="row g-0">
                 <div class="col-sm-5">
                     <img :src="'http://localhost:3000/' + item.picture" class="card-img-top h-75 w-100 card-image" alt="...">
@@ -39,9 +39,9 @@ function clickClusterDetail(_id){
                     <div class="card-body">
                         <h5>{{ item.name }}</h5> 
                         <p>{{ item.coop }}</p>
-                        <p v-if="item.system_name.length <= 30" v-text="item.system_name"></p>
-                        <p v-else v-text="item.system_name.substr(0, 15) + '...'"></p>
-                        <div class="btn-grad stretched-link" @click="clickClusterDetail(item._id)"><i class="bi bi-list-ul icon-detail"></i>Details</div>
+                        <p v-if="item.system_name.length <= 16" v-text="item.system_name"></p>
+                        <p v-else v-text="item.system_name.substr(0, 16) + '...'"></p>
+                        <div class="btn-grad btn-hover stretched-link" @click="clickClusterDetail(item._id)"><i class="bi bi-list-ul icon-detail"></i>Details</div>
                     </div>
                 </div>
             </div>
@@ -55,9 +55,26 @@ function clickClusterDetail(_id){
 
 <style scoped>
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+.cluster-box{
+    position: relative;
+    text-align: center;
+    padding: 48px 24px;
+    width: 1100px;
+    min-height: 600px;
+
+    /* white */
+
+    background: #FFFFFF;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+          
+}
 .invi-box{
     height: 60px;
     color: aqua;
+}
+.card-hover:hover{
+    box-shadow: 0 40px 60px -20px rgba(12, 5, 62, 0.2);
 }
 
     .container{
@@ -87,7 +104,7 @@ function clickClusterDetail(_id){
         border-color: #0052D4;
         align-items: center;
         border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
         padding: 20px;
         box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
         border-radius: 10px;
@@ -139,7 +156,7 @@ function clickClusterDetail(_id){
     align-items: center;
 }
 
-.btn-grad:hover {
+.btn-hover:hover {
     background-position: right center; 
     color: #fff;
     text-decoration: none;

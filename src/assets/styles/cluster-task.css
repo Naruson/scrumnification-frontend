@@ -151,3 +151,16 @@ tr {
     padding-right: 50px;
     padding-top: 50px;
 }
+.btn:hover{
+    background-color: #fff;
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(264.65deg, #84d7f8 4.28%, #1865df 88.39%);
+    
+}
+.color-white:hover{
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}

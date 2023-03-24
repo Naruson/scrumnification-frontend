@@ -16,15 +16,15 @@ onMounted(() => {
         <div class="h1">Task</div>
         <table class="table table-hover">
             <thead>
-                <tr>
-                <th scope="col">#</th>
+                <tr class="tr-head">
+                <th scope="col">No.</th>
                 <th scope="col">task name</th>
                 <th scope="col">point</th>
                 <th scope="col">action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(item, index) in taskStore.state.tasks" :key="item._id">
+                <tr v-for="(item, index) in taskStore.state.tasks" :key="item._id" >
                 <th scope="row">{{ index+1 }}</th>
                 <td>{{ item.name }}</td>
                 <td>{{item.point  }}</td>
@@ -63,7 +63,18 @@ onMounted(() => {
     /* white */
 
     background: #FFFFFF;
+    border: 1px solid #0052D4;
     box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+}
+.tr-head{
+    background-color: #0052D4; 
+    color: rgb(255, 255, 255); 
+}
+.tr-head>th:last-child{
+    border-top-right-radius: 10px;
+}
+.tr-head>th:first-child{
+    border-top-left-radius: 10px;
 }
 </style>
