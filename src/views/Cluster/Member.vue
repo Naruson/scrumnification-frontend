@@ -5,7 +5,10 @@ import router from "@/router";
 import clusterComponent from "@/components/cluster.vue";
 import { useCluster } from "@/stores/clusters";
 
-const cluster = useCluster
+
+const cluster = useCluster;
+
+
 
 </script>
 
