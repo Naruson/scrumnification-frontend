@@ -136,7 +136,7 @@ function login(){
 </template>
 
 <style scoped>
-
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 .center{
   display: block;
   margin-left: auto;
@@ -165,7 +165,7 @@ backdrop-filter: blur(150px);
 /* Note: backdrop-filter has minimal browser support */
 }
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 
 .login-page {
   width: 360px;

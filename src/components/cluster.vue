@@ -181,6 +181,10 @@ function clickBack(){
     color: #0052D4;
     text-decoration: none;
 }
+.bi-chevron-left{
+    font-size: 28px;
+    -webkit-text-stroke: 2px;
+}
       
 
 </style>
