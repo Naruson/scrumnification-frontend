@@ -34,6 +34,35 @@ export const useShop =  new Vuex.Store({
         // Swal.fire("Failed", "Failed to get tasks again later.", "error");
       }
     },
+    async buyItem({commit}, {itemId}) {
+      try {
+
+        let buyItem = await axios.post(
+          `http://localhost:3000/shop/buy/${itemId}`,
+          JSON.stringify({
+            clusterId: localStorage.getItem("clusterId"),
+          }),
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+      
+        if(buyItem.status === 200){
+          Swal.fire({
+            icon: 'success',
+            title: 'Buy item successfully.',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          console.log(this.state.shopList);
+        }
+      } catch (e) {
+        // this.state.isAuthen = false;
+        Swal.fire("Failed", "Error cannot buy an itrm try again later.", "error");
+      }
+    },
 
 }
 })

@@ -3,6 +3,7 @@ import { ref } from "@vue/reactivity";
 import { onMounted } from "@vue/runtime-core";
 import router from "@/router";
 import { useShop } from "@/stores/shop";
+import Swal from "sweetalert2";
 let role = ref("");
 
 let shopStore = useShop;
@@ -11,6 +12,25 @@ onMounted(() => {
     role = localStorage.getItem('role');
     shopStore.dispatch('getShops');
 })
+
+function buy(_id){
+        Swal.fire({
+            title:
+                '<strong style = "font-family:Kanit"> Are you sure to buy item? </strong>',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            cancelButtonText: '<div style = "font-family:Kanit"> Cancel </div>',
+            confirmButtonText: '<div style = "font-family:Kanit"> Sure </div>',
+            confirmButtonColor: '#005FBC',
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                shopStore.dispatch('buyItem', {itemId: _id});
+                console.log('buy item successfully')
+            }
+        });
+}
 
 </script>
 
@@ -25,13 +45,13 @@ onMounted(() => {
                 <th class="col-3">#</th>
                 <th class="col-4">Name</th>
                 <th class="col-3">Price</th>
-                <th class="col-2">Action</th>
+                <th class="col-2" v-if="role === 'leader'">Action</th>
             </tr>
             <tr class="row" v-for="(item, index) in shopStore.state.shopList" :key="item._id">
                 <td class="col-3">{{ index+1 }}</td>
                 <td class="col-4">{{ item.name }}</td>
                 <td class="col-3">{{ item.point }}</td>
-                <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
+                <td  class="btn-grad col-2" type="button" v-if="role === 'leader'"><i class="bi bi-cart3 icon-shop" @click="buy(item._id)"></i>Buy</td>
             </tr>
         </table>
     </div>

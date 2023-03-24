@@ -33,10 +33,13 @@ const router = createRouter({
       path: "/cluster/:clusterId/task",
       name: "cluster-detail",
       component: () => import("../views/Cluster/ClusterTask.vue"),
+      meta:{
+        btnMember: true
+      }
 
     },
     {
-      path: "/cluster/member",
+      path: "/cluster/:clusterId/member",
       name: "member",
       component: () => import("@/views/Cluster/Member.vue"),
 

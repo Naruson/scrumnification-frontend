@@ -37,7 +37,7 @@ async function getPoint() {
 
 function save(){
     console.log(date + '-' + task +'-'+ point);
-    if(date.value != "" && task.value != "" && point.value != ""){
+    if(date.value != "" && task.value != "" && point.value != ""  &&  point.value <= "10000"){
         Swal.fire({
             title:
                 '<strong style = "font-family:Kanit"> Are you sure to check task? </strong>',
@@ -96,7 +96,7 @@ function save(){
                 <label for="point" class="label">Point :</label>
                 <br>
                 <br>
-                <input type="number" name="point" class="selector-dropdown p-2" v-model="point" required>
+                <input type="number" name="point" class="selector-dropdown p-2" v-model="point" required :max="10000">
                 <!-- <div>value date: {{ date }}, value task: {{ task }},value point: {{ point }}</div> -->
                 <br>
                 <br>
