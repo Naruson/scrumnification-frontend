@@ -87,7 +87,7 @@ function previousPage(){
     position: absolute;
     width: 145px;
     height: 48px;
-    left: 85%;
+    right: 1%;
     top: 5%;
 
     background: linear-gradient(264.65deg, #6ECEF3 4.28%, #0052D4 88.39%);

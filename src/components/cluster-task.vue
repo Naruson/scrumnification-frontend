@@ -85,6 +85,7 @@ th {
   align-content: center;
   }
 td {
+    height: 30px;
   padding: 8px;
   text-align: left ;
   border-bottom: 1px solid #ddd;

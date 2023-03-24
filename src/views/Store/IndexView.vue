@@ -37,8 +37,10 @@ function buy(_id){
 <template>
 
     <div class="box">
-        <router-link to="/store/notification">
-            <div class="btn btn-primary btn-notification">Notification</div>
+        <router-link to="/store/notification" v-if="role === 'admin'">
+            <div class="btn btn-primary btn-notification"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
+            </svg> Notification</div>
         </router-link>
     <div class="font">Store</div>
         <div class="box-table">
@@ -58,13 +60,13 @@ function buy(_id){
             </table>
             <table v-if="role !== 'leader'">
                 <tr class="row" style="background-color: #0052D4; color: rgb(255, 255, 255); ">
-                        <th class="col-4">#</th>
-                        <th class="col-4">Name</th>
+                        <th class="col-2">No.</th>
+                        <th class="col-6">Name</th>
                         <th class="col-4">Price</th>
                 </tr>
                 <tr class="row" v-for="(item, index) in shopStore.state.shopList" :key="item._id">
-                    <td class="col-4">{{ index+1 }}</td>
-                    <td class="col-4">{{ item.name }}</td>
+                    <td class="col-2">{{ index+1 }}</td>
+                    <td class="col-6">{{ item.name }}</td>
                     <td class="col-4">{{ item.point }}</td>
                 </tr>
             </table>
@@ -74,6 +76,20 @@ function buy(_id){
 </template>
 
 <style scoped>
+
+.btn-notification{
+    text-align: center;
+    padding-top: 10px;
+    
+    /* padding-top: 10px; */
+    /* ButtonDetailCluster */
+    width: 145px;
+    height: 48px;
+
+    background: linear-gradient(264.65deg, #6ECEF3 4.28%, #0052D4 88.39%);
+    border-radius: 20px;
+    border: transparent;
+}
 .btn{
     position: absolute;
     right: 5%;

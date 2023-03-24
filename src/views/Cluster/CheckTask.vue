@@ -64,6 +64,16 @@ function save(){
                 
                 // router.push('/cluster');
                 console.log('add successfully')
+
+                Swal.fire({
+                title: 'Checking task ...',
+                html: 'Please wait...',
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+                });
             }
         });
     }

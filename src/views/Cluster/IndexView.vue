@@ -55,6 +55,20 @@ function clickClusterDetail(_id){
 
 <style scoped>
 
+.cluster-box{
+    position: relative;
+    text-align: center;
+    padding: 48px 24px;
+    width: 1100px;
+    min-height: 600px;
+
+    /* white */
+
+    background: #FFFFFF;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+          
+}
 .card-hover:hover{
     box-shadow: 0 40px 60px -20px rgba(12, 5, 62, 0.2);
 }
