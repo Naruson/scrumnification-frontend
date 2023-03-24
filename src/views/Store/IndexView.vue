@@ -27,7 +27,15 @@ function buy(_id){
         }).then((result) => {
             if (result.isConfirmed) {
                 shopStore.dispatch('buyItem', {itemId: _id});
-                console.log('buy item successfully')
+                Swal.fire({
+                title: 'Buying item ...',
+                html: 'Please wait...',
+                allowEscapeKey: false,
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
+                });
             }
         });
 }
@@ -55,7 +63,7 @@ function buy(_id){
                     <td class="col-3">{{ index+1 }}</td>
                     <td class="col-4">{{ item.name }}</td>
                     <td class="col-3">{{ item.point }}</td>
-                    <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop" @click="buy(item._id)"></i>Buy</td>
+                    <td @click="buy(item._id)" class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
                 </tr>
             </table>
             <table v-if="role !== 'leader'">
