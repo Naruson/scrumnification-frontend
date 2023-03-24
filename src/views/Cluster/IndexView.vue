@@ -39,7 +39,8 @@ function clickClusterDetail(_id){
                     <div class="card-body">
                         <h5>{{ item.name }}</h5> 
                         <p>{{ item.coop }}</p>
-                        <p>{{ item.system_name }}</p>
+                        <p v-if="item.system_name.length <= 30" v-text="item.system_name"></p>
+                        <p v-else v-text="item.system_name.substr(0, 15) + '...'"></p>
                         <div class="btn-grad stretched-link" @click="clickClusterDetail(item._id)"><i class="bi bi-list-ul icon-detail"></i>Details</div>
                     </div>
                 </div>
@@ -53,17 +54,12 @@ function clickClusterDetail(_id){
 
 
 <style scoped>
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 .invi-box{
     height: 60px;
     color: aqua;
 }
-/* .container{
-    background-color: brown;
-    z-index: 1000;
-} */
 
-/* Option 2: Import via CSS */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
     .container{
         height: auto;
         padding-top: 30px; 
@@ -78,19 +74,9 @@ function clickClusterDetail(_id){
         border-color: #0052D4;
         border-radius: 15px;
         flex-direction: column-reverse;
-        /* display: flex;*/
         justify-content: center; 
     }
-    /* .card{
-        height: auto; 
-        padding: auto;
-        margin: 20px;
-        min-height: 150px; 
-        max-height: 500px;
-        border-color: #0052D4;
-        border-radius: 15px;
 
-    } */
     .card {
         width: 409px;
         height: 200px; 
@@ -103,16 +89,17 @@ function clickClusterDetail(_id){
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         padding: 20px;
+        box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
 
     }
 
 .card-image {
   flex: 0 0 auto;
-  width: 150px;
-  height: 150px;
+  width: auto;
+  height: auto;
   margin-right: 20px;
   border-radius: 50%;
-  /* overflow: hidden; */
 }
 
 .card-image img {
@@ -147,40 +134,16 @@ function clickClusterDetail(_id){
     color: white;            
     box-shadow: 0 0 20px #eee;
     border-radius: 25px;
-            
     display: flex;
     justify-self: left;
     align-items: center;
 }
 
-          .btn-grad:hover {
-            background-position: right center; /* change the direction of the change here */
-            color: #fff;
-            text-decoration: none;
-          }
-         
-         
-/* .btn-grad {
-    height: 40px;
-    width: 140px;
-    background-image: linear-gradient(to right, #0052D4 0%, #6ECEF3  100%);
-    margin: 10px;
-    padding: 15px 45px;
-    text-align: center;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;            
-    box-shadow: 0 0 20px #eee;
-    border-radius: 25px;
-    display: block;
-    
-}
-
 .btn-grad:hover {
-    background-position: right center; /* change the direction of the change here */
-    /* color: #fff;
-    text-decoration: none; */
-
+    background-position: right center; 
+    color: #fff;
+    text-decoration: none;
+}
 .btn-add {
     height: 60px;
     width: 180px;
@@ -200,7 +163,7 @@ function clickClusterDetail(_id){
 }
 
 .btn-add:hover {
-    background-position: right center; /* change the direction of the change here */
+    background-position: right center;
     color: #fff;
     text-decoration: none;
 }
@@ -218,10 +181,3 @@ function clickClusterDetail(_id){
 }
          
 </style>
-    <!-- <div class="conatiner">
-        <div>This is Cluster Index Page</div>
-        <router-link to="/cluster/task"> 
-            <button class="btn btn-primary">Task</button>
-        </router-link>
-    </div>
-</template> -->

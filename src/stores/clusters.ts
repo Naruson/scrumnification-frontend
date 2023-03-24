@@ -16,6 +16,7 @@ export const useCluster =  new Vuex.Store({
     tasksTransaction: [],
     clusterId: "",
     clusterList: [],
+    memberList: [],
   },
   mutations: {
     updateTasksTransaction(state, payload) {
@@ -41,6 +42,9 @@ export const useCluster =  new Vuex.Store({
       },
     updateclusterList(state, payload) {
         state.clusterList = payload
+      },
+      updatememberList(state, payload) {
+        state.memberList = payload
       }
   },
   actions: {
@@ -102,6 +106,8 @@ export const useCluster =  new Vuex.Store({
             this.state.coop = cluster.data.cluster.coop;
             this.state.systemName = cluster.data.cluster.system_name;
             this.state.clusterName = cluster.data.cluster.name;
+            this.state.memberList = cluster.data.cluster.member;
+            console.log(this.state.memberList);
         }
       } catch (e) {
         Swal.fire("Failed", "Failed to get cluster try again later.", "error");
@@ -135,6 +141,6 @@ export const useCluster =  new Vuex.Store({
     //   } catch (e: any) {
     //     Swal.fire("Login Fail", "Authenticator Failed", "error");
     //   }
-    // },  
+    // }, 
 }
 })

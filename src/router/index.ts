@@ -36,9 +36,9 @@ const router = createRouter({
 
     },
     {
-      path: "/cluster/member",
+      path: "/cluster/:clusterId/member",
       name: "member",
-      component: () => import("@/views/Cluster/Member.vue"),
+      component: () => import("../views/Cluster/Member.vue"),
 
     },
     {
