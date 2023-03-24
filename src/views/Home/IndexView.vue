@@ -1,13 +1,20 @@
-<script setup lang="ts">
+<script lang="ts">
 import { ref } from "@vue/reactivity";
-import { onMounted } from "@vue/runtime-core";
+import { defineComponent, onMounted } from "@vue/runtime-core";
 import router from "@/router";
+import { Bar } from 'vue-chartjs'
+import BarChart from "@/components/Chart/BarChart.vue"
 
+export default {
+  name: 'App',
+  components: { BarChart }
+}
 </script>
 
 <template>
     <div class="leader-box">
         <div class="h1">Leader Board</div>
+        <div><BarChart /></div>
     </div>
 </template>
 
