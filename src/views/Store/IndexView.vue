@@ -12,6 +12,25 @@ onMounted(() => {
     shopStore.dispatch('getShops');
 })
 
+function buy(_id){
+        Swal.fire({
+            title:
+                '<strong style = "font-family:Kanit"> Are you sure to buy item? </strong>',
+            icon: 'warning',
+            showCancelButton: true,
+            cancelButtonColor: '#d33',
+            cancelButtonText: '<div style = "font-family:Kanit"> Cancel </div>',
+            confirmButtonText: '<div style = "font-family:Kanit"> Sure </div>',
+            confirmButtonColor: '#005FBC',
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                shopStore.dispatch('buyItem', {itemId: _id});
+                console.log('buy item successfully')
+            }
+        });
+}
+
 </script>
 
 <template>
@@ -19,22 +38,34 @@ onMounted(() => {
 
     <div class="box">
     <div class="font">Store</div>
-    <div class="box-table">
-        <table class="row">
-            <tr class="row" style="background-color: #0052D4; color: rgb(255, 255, 255); " >
-                <th class="col-3">#</th>
-                <th class="col-4">Name</th>
-                <th class="col-3">Price</th>
-                <th class="col-2">Action</th>
-            </tr>
-            <tr class="row" v-for="(item, index) in shopStore.state.shopList" :key="item._id">
-                <td class="col-3">{{ index+1 }}</td>
-                <td class="col-4">{{ item.name }}</td>
-                <td class="col-3">{{ item.point }}</td>
-                <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
-            </tr>
-        </table>
-    </div>
+        <div class="box-table">
+            <table v-if="role === 'leader'">
+                <tr class="row" style="background-color: #0052D4; color: rgb(255, 255, 255); ">
+                        <th class="col-3">No.</th>
+                        <th class="col-4">Name</th>
+                        <th class="col-3">Price</th>
+                        <th class="col-2">Action</th>
+                </tr>
+                <tr class="row" v-for="(item, index) in shopStore.state.shopList" :key="item._id">
+                    <td class="col-3">{{ index+1 }}</td>
+                    <td class="col-4">{{ item.name }}</td>
+                    <td class="col-3">{{ item.point }}</td>
+                    <td  class="btn-grad col-2" type="button"><i class="bi bi-cart3 icon-shop" @click="buy(item._id)"></i>Buy</td>
+                </tr>
+            </table>
+            <table v-if="role !== 'leader'">
+                <tr class="row" style="background-color: #0052D4; color: rgb(255, 255, 255); ">
+                        <th class="col-2">No.</th>
+                        <th class="col-6">Name</th>
+                        <th class="col-4">Price</th>
+                </tr>
+                <tr class="row" v-for="(item, index) in shopStore.state.shopList" :key="item._id">
+                    <td class="col-2">{{ index+1 }}</td>
+                    <td class="col-6">{{ item.name }}</td>
+                    <td class="col-4">{{ item.point }}</td>
+                </tr>
+            </table>
+        </div>
     </div>
 
 </template>
