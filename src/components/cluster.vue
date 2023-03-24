@@ -2,27 +2,36 @@
 
 import { onMounted } from "@vue/runtime-core";
 import { useCluster } from "@/stores/clusters";
+
 import router from "@/router";
 const cluster = useCluster
 
-
 // Get the current URL path
 const path = window.location.pathname;
+// Split the path into an array of segments
 const segments = path.split('/');
+// Find the index of the "cluster" segment
 const clusterIndex = segments.findIndex(segment => segment === 'cluster');
+// Get the clusterId parameter from the next segment
 const clusterId = segments[clusterIndex + 1];
+// Log the value of the clusterId parameter to the console
 console.log(clusterId);
 onMounted(() => {
-cluster.dispatch("getClusterById", {clusterId: clusterId});
-
+    cluster.dispatch("getClusterById", {clusterId: clusterId});
 });
 
 function clickClusterMember(_id){
+    // const clusterId0 = '64189a3d9979072da0be5249';
     router.push(`/cluster/${_id}/member`);
+    // const button = document.querySelector('.hide');
+    // button.style.display = 'none';
 
+    // router.go(-1)
 }
 function clickBack(){
 
+    // const clusterId0 = '64189a3d9979072da0be5249';
+    // router.push(`/cluster/${_id}/task`);
     router.go(-1)
 }
 
@@ -49,43 +58,10 @@ function clickBack(){
 <style scoped>
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
-
-.fs{
-    width: 39px;
-    height: 50px;
-}
-.previous-page{
-    color: black;
-    position: absolute;
-    top: 10px;
-    left: 5px;
-}
-.white{
-    color: white;
-}
-.btn-center {
-    text-align: center;
-    padding: auto;
-    margin: auto;
-}
-.btn-member{
-    text-align: center;
-    padding-top: 5px;
-    /* padding-top: 10px; */
-    /* ButtonDetailCluster */
-    position: absolute;
-    width: 145px;
-    height: 48px;
-    right: 1%;
-    top: 5%;
-
-    background: linear-gradient(264.65deg, #6ECEF3 4.28%, #0052D4 88.39%);
-    border-radius: 20px;
-}
 .text{
     position: absolute;
-    left: 40%;
-    top: 25%;
+    left: 50%;
+    top: 30%;
 }
 .name-cluster-coop{
     /* Cluster 7 x IV Soft */
@@ -107,7 +83,6 @@ function clickBack(){
     font-weight: 400;
     font-size: 32px;
     line-height: 39px;
-    max-width: 500px;
     /* identical to box height */
     /* purple2 */
     color: #0052D4;

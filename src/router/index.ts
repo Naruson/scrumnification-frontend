@@ -33,9 +33,6 @@ const router = createRouter({
       path: "/cluster/:clusterId/task",
       name: "cluster-detail",
       component: () => import("../views/Cluster/ClusterTask.vue"),
-      meta:{
-        btnMember: true
-      }
 
     },
     {
@@ -48,11 +45,7 @@ const router = createRouter({
       path: "/store",
       name: "store",
       component: () => import("../views/Store/IndexView.vue"),
-    },
-    {
-      path: "/store/notification",
-      name: "notification",
-      component: () => import("@/views/Store/Notification.vue"),
+
     },
     {
       path: "/task",

@@ -4,7 +4,6 @@ import { ref } from "vue";
 import { useAccount } from "@/stores/accounts";
 import { onMounted } from "vue";
 import router from "@/router";
-import Swal from "sweetalert2";
 
 onMounted(() => {
   let authen = localStorage.getItem('isAuthen');
@@ -52,16 +51,6 @@ function login(){
   console.log(username.value);
   console.log(password.value);
   useAccount.dispatch("login");
-
-  Swal.fire({
-  title: 'Logged in ...',
-  html: 'Please wait...',
-  allowEscapeKey: false,
-  allowOutsideClick: false,
-  didOpen: () => {
-    Swal.showLoading()
-  }
-});
 }
 </script>
 

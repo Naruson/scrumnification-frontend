@@ -5,7 +5,7 @@ import taskComponent from "@/components/cluster-task.vue";
 let role = localStorage.getItem("role");
 </script>
 <template>
-        <clusterComponent btnMembers="enable"/>
+        <clusterComponent/>
         <div class="invi-box"></div>
         <taskComponent/>
 </template>

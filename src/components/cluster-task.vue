@@ -4,10 +4,7 @@ import { onMounted } from "@vue/runtime-core";
 import { useCluster } from "@/stores/clusters";
 import { ref } from 'vue';
 
-
-
 let role = ref("");
-
 // Get the current URL path
 const path = window.location.pathname;
 const segments = path.split('/');
@@ -21,12 +18,12 @@ const cluster = useCluster
 onMounted(() => {
     role = localStorage.getItem('role');
     console.log('role: '+ role);
-    cluster.dispatch("getClusterTasks", {clusterId: clusterId});
+    cluster.dispatch("getClusterTasks", { clusterId: clusterId });
 });
 </script>   
 <template>
-        <div class="box center">
-            <!-- <font-awesome-icon icon="fa-solid fa-list-check" /> -->
+    <div class="box center">
+            <font-awesome-icon icon="fa-solid fa-list-check" />
             <router-link v-bind:to="'/cluster/'+clusterId+'/check-task'" v-if="role == 'coach'">
                 <button class="btn color-white"> 
                   <div class="btn-center">
@@ -44,74 +41,30 @@ onMounted(() => {
                       {{ cluster.state.point }}
                     </div>
                 </div>
-                      <table class="table">
+                      <br>
+                      <table class="table table-striped">
                 <thead>
-                    <tr style="background-color: #0052D4; color: rgb(255, 255, 255);" class="header">
-                        <th scope="col">No.</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">SE Dollar</th>
+                    <tr style="background-color: #0052D4; color: rgb(255, 255, 255);">
+                    <th scope="col">No.</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">SE Dollar</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(item, index) in cluster.state.tasksTransaction" :key="item._id">
-                        <td scope="row">{{ index + 1 }}</td>
-                        <td>{{ item.name }}</td>
-                        <td>{{ item.created_at }}</td>
-                        <td>{{ item.point }}</td>
+                    <td scope="row">{{ index + 1 }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.created_at }}</td>
+                    <td>{{ item.point }}</td>
                     </tr>
+
                 </tbody>
             </table>
         </div>
+
   </template>
 
 <style scoped>
 @import '@/assets/styles/cluster-task.css';
-
-table {
-  margin-top: 24px;
-  border-collapse: collapse;
-  border-radius: 5px;
-  overflow: hidden;
-  width: 100%;
-  padding: center;
-  position: static;
-}
-
-th {
-  padding: 8px;
-  text-align: left ;
-  border-bottom: 1px solid #ddd;
-  align-content: center;
-  }
-td {
-    height: 30px;
-  padding: 8px;
-  text-align: left ;
-  border-bottom: 1px solid #ddd;
-  /* border-radius:10px ; */
-  align-content: center;
-  margin-top: 10px;
-  }
-  tr{
-    border: 1px solid #ddd;
-    border-radius:5px ;
-  }
-
-
-.header{
-    background: #0052D4;
-    color: #ffff;
-    height: 40px;
-    align-content: center;
-    /* padding-left: 3rem; */
-    border-top-left-radius: 5px !important;
-    border-top-right-radius: 5px !important;
-    font-size: 18px;
-    font-family: 'Kanit';
-    font-weight: bold;
-    text-align: center;
-    position: relative;
-}
-
 </style>
