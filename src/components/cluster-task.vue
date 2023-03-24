@@ -69,9 +69,5 @@ onMounted(() => {
 <style scoped>
 @import '@/assets/styles/cluster-task.css';
 
-.invi-box {
-    height: 60px;
-    color: aqua;
-}
 
 </style>

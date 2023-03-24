@@ -21,41 +21,8 @@ onMounted(() => {
 });
 </script>   
 <template>
-    <div>
-        <clusterComponent/>
-      <div class="row mt-5">
-        <div class="card col-6">
-            <div class="row g-0">
-                <div class="col-sm-5">
-                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" alt="...">
-                </div>
-                <div class="col-sm-7">
-                    <div class="card-body">
-                        <p>ชื่อ-สกุล :</p> 
-                        <p>รหัสนิสิต :</p>
-                        <p class="position">ตำแหน่ง :</p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card col-6" style="">
-          <div class="row g-0">
-                <div class="col-sm-5">
-                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" alt="...">
-                </div>
-                <div class="col-sm-7">
-                    <div class="card-body">
-                        <p>ชื่อ-สกุล</p> 
-                        <p>รหัสนิสิต</p>
-                        <p class="position">ตำแหน่ง</p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      <div class="row">
+    <clusterComponent/>
+    <div class="row">
         <div class="card col-6" style="">
             <div class="row g-0">
                 <div class="col-sm-5">
@@ -71,59 +38,10 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-        <div class="card col-6" style="">
-            <div class="row g-0">
-                <div class="col-sm-5">
-                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" alt="...">
-                </div>
-                <div class="col-sm-7">
-                    <div class="card-body">
-                        <p>ชื่อ-สกุล</p> 
-                        <p>รหัสนิสิต</p>
-                        <p class="position">ตำแหน่ง</p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="card col-6" style="">
-            <div class="row g-0">
-                <div class="col-sm-5">
-                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" alt="...">
-                </div>
-                <div class="col-sm-7">
-                    <div class="card-body">
-                        <p>ชื่อ-สกุล</p> 
-                        <p>รหัสนิสิต</p>
-                        <p class="position">ตำแหน่ง</p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="card col-6" style="">
-            <div class="row g-0">
-                <div class="col-sm-5">
-                    <img src="https://humancatsworld.files.wordpress.com/2019/03/cats.jpg?w=825" class="card-img-top h-75 w-100 card-image" alt="...">
-                </div>
-                <div class="col-sm-7">
-                    <div class="card-body">
-                        <p>ชื่อ-สกุล</p> 
-                        <p>รหัสนิสิต</p>
-                        <p class="position">ตำแหน่ง</p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
     </div>
-  </template>
-
+</template>
 <style scoped>
-@import '@/assets/styles/cluster-task.css';
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
 .invi-box {
     height: 60px;
@@ -136,7 +54,6 @@ onMounted(() => {
 } */
 
 /* Option 2: Import via CSS */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
 .container {
     height: auto;
