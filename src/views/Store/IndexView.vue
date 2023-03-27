@@ -47,9 +47,9 @@ function buy(_id){
 
     <div class="box">
         <router-link to="/store/notification" v-if="role === 'admin'">
-            <div class="btn btn-primary btn-notification"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
+            <div class="btn btn-primary btn-grad"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
                 <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-            </svg> Notification</div>
+            </svg>  Notification</div>
         </router-link>
         <div class="font">Store</div>
             <table v-if="role === 'leader'" class="table table-hover" >
@@ -95,21 +95,27 @@ function buy(_id){
 
 <style scoped>
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
-.btn-notification{
-    position: absolute;
-    text-align: center;
-    padding-top: 10px;
-    top: 5%;
-    right: 5%;
-    
-    /* padding-top: 10px; */
-    /* ButtonDetailCluster */
-    width: 145px;
-    height: 48px;
-
-    background: linear-gradient(264.65deg, #6ECEF3 4.28%, #0052D4 88.39%);
-    border-radius: 20px;
+.btn-grad {
+    justify-content: center;
     border: transparent;
+    height: 45px;
+    width:190px;
+    background-image: linear-gradient(to right, #0052D4 0%, #6ECEF3  100%);
+    padding: 20px;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 25px;  
+    display: flex;
+    justify-self: left;
+    align-items: center;
+    margin-top: 20px;
+}
+.btn-grad:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
 }
 .btn{
     position: absolute;

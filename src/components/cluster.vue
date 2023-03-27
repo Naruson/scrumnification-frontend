@@ -126,7 +126,7 @@ function clickBack(){
     margin-left: auto;
 }
 .btn-grad:hover {
-    background-position: right center; /* change the direction of the change here */
+    background-position: right center;
     color: #fff;
     text-decoration: none;
 }
@@ -148,7 +148,7 @@ function clickBack(){
     color: #000000;
 }
 .icon-back:hover {
-    background-position: right center; /* change the direction of the change here */
+    background-position: right center;
     color: #0052D4;
     text-decoration: none;
 }
