@@ -37,8 +37,10 @@ export default {
       }
     }
   },
-  async mounted() {
-    await this.fetchData();
+  mounted() {
+    this.fetchData();
+  },
+  watch: {
   },
   methods: {
     fetchData() {
@@ -49,21 +51,11 @@ export default {
           const points = clusters.map(cluster => cluster.point);
           this.chartData.labels = labels;
           this.chartData.datasets[0].data = points;
-          localStorage.setItem('labels',this.chartData.labels);
-          localStorage.setItem('data',this.chartData.datasets[0].data);
         })
         .catch(error => {
           console.log(error);
         });
     },
-    get(){
-      this.chartData.labels = localStorage.getItem('labels');
-      this.chartData.datasets[0].data = localStorage.getItem('data');
-    }
-
   },
-  watch: {
-
-}
 }
 </script>

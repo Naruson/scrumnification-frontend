@@ -2,48 +2,11 @@
 
 import { ref } from "vue";
 import { useAccount } from "@/stores/accounts";
-import { onMounted } from "vue";
-import router from "@/router";
-
-onMounted(() => {
-  let authen = localStorage.getItem('isAuthen');
-  if(authen === "true"){
-    router.push('/home');
-  }
-});
-
+import Swal from "sweetalert2";
 
 let username = ref("");
 let password = ref("");
-let email = ref("");
 
-
-
-
-
-// import { useUser } from "@/stores/user";
-
-// let username = ref("");
-// let password = ref("");
-// let checkRememberMe = ref(false);
-
-// const user = useUser;
-// function check() {
-//   user.state.username = username.value;
-//   user.state.password = password.value;
-
-//   user.dispatch('login');
-// }
-
-function loginAdmin(){
-  localStorage.setItem("role", "admin");
-}
-function loginCoach(){
-  localStorage.setItem("role", "coach");
-}
-function loginLeader(){
-  localStorage.setItem("role", "leader");
-}
 function login(){
   useAccount.state.username = username.value;
   useAccount.state.password = password.value;
@@ -51,6 +14,16 @@ function login(){
   console.log(username.value);
   console.log(password.value);
   useAccount.dispatch("login");
+
+  Swal.fire({
+  title: 'Logged in ...',
+  html: 'Please wait...',
+  allowEscapeKey: false,
+  allowOutsideClick: false,
+  didOpen: () => {
+    Swal.showLoading()
+  }
+});
 }
 </script>
 
@@ -68,50 +41,18 @@ function login(){
 <div class="split2 right">
   <div class="centered2">
     <div>
-        <form class="login-form">
+        <form class="login-form" @submit.prevent="">
           <div class="fontColor" style="font-size: 600%; text-align: center;">Login</div>
           <div style="font-weight: bold; margin-top: 10%;">Username:</div>
           <input type="text" class="boxInputText" placeholder="" v-model="username"/><br>
           <div style="font-weight: bold; margin-top: 20%;">Password:</div>
           <input type="password" class="boxInputText" placeholder="" v-model="password"/><br>
-          <router-link to="/home">
-              <!-- <button @click="loginAdmin()">login Admin</button>
-              <button @click="loginLeader()">login Leader</button>
-              <button @click="loginCoach()">login Coach</button> -->
             <button class="buttomColorLogin" style="margin-top: 20%;" @click="login()"><div style="color: white;">Login</div></button>
-          </router-link>
-              <!-- <p class="message">ขี้เกียจ login? <router-link to="/home" >Click me</router-link></p> -->
         </form>
     </div>
   </div>
 </div>
 </div>
-
-
-
-
-
-  <!-- <div class="login-page">
-  <div class="form">
-    <img class="mb-4" src="@/assets/logo.svg" alt="" width="72" height="57" />
-      <h1 class="h3 mb-3 fw-normal">Please login</h1>
-    <form class="register-form">
-      <button>create</button>
-    </form>
-    <form class="login-form">
-      <input  type="text"
-          class="form-control"
-          id="floatingInput"
-          
-          placeholder="name@example.com"/>
-      <input  type="password"
-          class="form-control"
-          id="floatingPassword"
-          placeholder="Password"/>
-      <button type="button">login</button>
-    </form>
-  </div>
-</div> -->
 </template>
 
 <style scoped>
