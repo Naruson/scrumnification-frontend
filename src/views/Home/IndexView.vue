@@ -38,7 +38,7 @@ export default {
     text-align: center;
     padding: 48px 24px;
     width: 1100px;
-    min-height: 80vh;
+    min-height: 10vh;
 
     /* white */
 

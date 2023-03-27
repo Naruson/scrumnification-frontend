@@ -52,12 +52,11 @@ function buy(_id){
             </svg> Notification</div>
         </router-link>
         <div class="font">Store</div>
-        <div class="box-table">
             <table v-if="role === 'leader'" class="table table-hover" >
                 <thead>
                     <tr class="row tr-head" style="background-color: #0052D4; color: rgb(255, 255, 255); ">
                         <th class="col-3">No.</th>
-                        <th class="col-3">Name</th>
+                        <th class="col-3">Item name</th>
                         <th class="col-3">Price</th>
                         <th class="col-3">Action</th>
                 </tr>
@@ -77,20 +76,19 @@ function buy(_id){
             <table v-if="role !== 'leader'" class="table table-hover">
                 <thead>
                     <tr class="row tr-head" style="background-color: #0052D4; color: rgb(255, 255, 255); ">
-                        <th class="col-4">No.</th>
-                        <th class="col-5">Name</th>
+                        <th class="col-3">No.</th>
+                        <th class="col-6">Item name</th>
                         <th class="col-3">Price</th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr class="row" v-for="(item, index) in shopStore.state.shopList" :key="item._id">
-                    <td class="col-4">{{ index+1 }}</td>
-                    <td class="col-5">{{ item.name }}</td>
+                    <td class="col-3">{{ index+1 }}</td>
+                    <td class="col-6">{{ item.name }}</td>
                     <td class="col-3">{{ item.point }}</td>
                 </tr>
                 </tbody>
             </table>
-        </div>
     </div>
 
 </template>
@@ -98,10 +96,11 @@ function buy(_id){
 <style scoped>
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 .btn-notification{
+    position: absolute;
     text-align: center;
     padding-top: 10px;
-    margin-top: 64px;
-    margin-right: 32px;
+    top: 5%;
+    right: 5%;
     
     /* padding-top: 10px; */
     /* ButtonDetailCluster */
@@ -119,9 +118,9 @@ function buy(_id){
 }
 .box{
     height: auto;
-    padding-top: 30px;
+    padding-top: 48px;
     padding-left: 50px;
-    margin: 20px;
+    /* margin: 20px; */
     padding-bottom: 60px;
     min-height: 100px;
     max-height: 1000px;
@@ -137,14 +136,16 @@ function buy(_id){
     background: #FFFFFF;
     box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
+    position: relative;
             
     }
 .font{
+    text-align: center;
     color: #0052D4;
     font-size: 50px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 40%;
+    /* padding-left: 40%; */
     font-family: 'Kanit';
     font-style: normal;
     font-weight: 700;
@@ -161,11 +162,7 @@ function buy(_id){
 .tr-head>th:first-child{
     border-top-left-radius: 10px;
 }
-  .box-table{
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top:50px ;
-  }
+
 
 
 .store-box{

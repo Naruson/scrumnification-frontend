@@ -57,14 +57,12 @@
 }
 
 .head1 {
-    /* Task */
-    /* position: absolute; */
-    font-family: 'Inter';
+    color: #0052D4;
+    font-size: 50px;
+    font-family: 'Kanit';
     font-style: normal;
-    font-weight: 500;
-    font-size: 64px;
-    line-height: 77px;
-    color: #5151F2;
+    font-weight: 700;
+    line-height: 60px;
 }
 
 .btn-check-task {
@@ -119,8 +117,8 @@
 
 table {
     border-collapse: collapse;
-    width: 100%;
-    padding: center;
+    /* width: 100%; */
+    /* padding: center; */
 }
 
 th {
@@ -146,21 +144,43 @@ tr {
     /* color: rgb(255, 255, 255); */
 }
 
+table,
+tr {
+    border: none;
+}
+
 .box-table {
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 50px;
 }
-.btn:hover{
+
+.btn:hover {
     background-color: #fff;
-    background-position: right center; /* change the direction of the change here */
+    background-position: right center;
+    /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
     background: linear-gradient(264.65deg, #84d7f8 4.28%, #1865df 88.39%);
-    
 }
-.color-white:hover{
-    background-position: right center; /* change the direction of the change here */
+
+.color-white:hover {
+    background-position: right center;
+    /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
+}
+
+.tr-head {
+    background-color: #0052D4;
+    color: rgb(255, 255, 255);
+    border-radius: 4px 4px 0px 0px;
+}
+
+.tr-head>th:last-child {
+    border-top-right-radius: 10px;
+}
+
+.tr-head>th:first-child {
+    border-top-left-radius: 10px;
 }

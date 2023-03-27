@@ -17,16 +17,16 @@ onMounted(() => {
         <table class="table table-hover">
             <thead>
                 <tr class="tr-head">
-                <th scope="col">No.</th>
-                <th scope="col">Task name</th>
-                <th scope="col">Point</th>
+                <th class="col-3">No.</th>
+                <th class="col-6">Task name</th>
+                <th class="col-3">Point</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="(item, index) in taskStore.state.tasks" :key="item._id" >
-                <th scope="row">{{ index+1 }}</th>
-                <td>{{ item.name }}</td>
-                <td>{{item.point  }}</td>
+                <td class="col-3">{{ index + 1 }}</td>
+                <td class="col-6">{{ item.name }}</td>
+                <td class="col-3">{{item.point  }}</td>
                 </tr>
             </tbody>
             </table>
@@ -35,23 +35,20 @@ onMounted(() => {
 
 <style scoped>
 .h1{
-    /* STORE */
+    text-align: center;
+    color: #0052D4;
+    font-size: 50px;
     font-family: 'Kanit';
     font-style: normal;
     font-weight: 700;
-    font-size: 40px;
     line-height: 60px;
-    /* identical to box height */
-
-
-    color: #0052D4;
 }
 .task-box{
     position: relative;
-    text-align: center;
+    /* text-align: center; */
     padding: 48px 24px;
     width: 1100px;
-    min-height: 1000px;
+    min-height: 600px;
 
     /* white */
 

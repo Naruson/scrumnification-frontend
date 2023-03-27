@@ -29,7 +29,7 @@ export default {
       chartData: {
         labels: [ localStorage.getItem('label0'), localStorage.getItem('label1'), localStorage.getItem('label2'), localStorage.getItem('label3'), localStorage.getItem('label4'), localStorage.getItem('label5'), localStorage.getItem('label6'), localStorage.getItem('label7'), localStorage.getItem('label8'), localStorage.getItem('label9')],
         datasets: [ { 
-          label: 'Cluster Points',
+          label: 'SE Dollar',
           backgroundColor: '#f87979',
           data: [ localStorage.getItem('point0'), localStorage.getItem('point1'), localStorage.getItem('point2'), localStorage.getItem('point3'), localStorage.getItem('point4'), localStorage.getItem('point5'), localStorage.getItem('point6'), localStorage.getItem('point7'), localStorage.getItem('point8'), localStorage.getItem('point9')] } ]
       },

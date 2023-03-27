@@ -57,13 +57,14 @@ onMounted(() => {
     color: #0052D4;
     font-size: 50px;
     font-family: 'Kanit';
-    display: flex;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
     justify-content: center;
-    font-weight: bold;
 }
 
 .box-table{
-    margin:48px 24px;
+    margin:0px 24px;
 }
 .header{
     background: #0052D4;
@@ -81,7 +82,7 @@ onMounted(() => {
 }
 
 table {
-  margin-top: 24px;
+  /* margin-top: 24px; */
   /* border-collapse: collapse; */
   /* width: 100%; */
   /* padding: center; */
@@ -117,5 +118,6 @@ td {
     font-family: 'Kanit';
     position: relative;
 }
+
 
 </style>
