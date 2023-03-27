@@ -18,8 +18,8 @@ onMounted(() => {
             <thead>
                 <tr class="tr-head">
                 <th scope="col">No.</th>
-                <th scope="col">task name</th>
-                <th scope="col">point</th>
+                <th scope="col">Task name</th>
+                <th scope="col">Point</th>
                 </tr>
             </thead>
             <tbody>
