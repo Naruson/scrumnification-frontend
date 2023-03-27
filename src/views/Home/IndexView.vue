@@ -14,7 +14,9 @@ export default {
 <template>
     <div class="leader-box">
         <div class="h1">Leader Board</div>
-        <div><BarChart /></div>
+        <div>
+            <BarChart />
+        </div>
     </div>
 </template>
 

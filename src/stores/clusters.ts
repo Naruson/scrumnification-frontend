@@ -17,6 +17,7 @@ export const useCluster =  new Vuex.Store({
     clusterId: "",
     clusterList: [],
     memberList: [],
+    clusterPoints: [],
   },
   mutations: {
     updateTasksTransaction(state, payload) {
@@ -43,8 +44,11 @@ export const useCluster =  new Vuex.Store({
     updateclusterList(state, payload) {
         state.clusterList = payload
       },
-      updatememberList(state, payload) {
+    updatememberList(state, payload) {
         state.memberList = payload
+      },
+    updatePoints(state, payload) {
+        state.clusterPoints = payload
       }
   },
   actions: {
@@ -113,34 +117,23 @@ export const useCluster =  new Vuex.Store({
         Swal.fire("Failed", "Failed to get cluster try again later.", "error");
       }
     },
-    // async login() {
-    //   try {
+    async getPoints() {
+      try {
 
-    //     let userLogin = await axios.post(
-    //       "http://localhost:3000/api/authentication/login",
-    //       JSON.stringify({
-    //         username: this.state.username,
-    //         password: this.state.password,
-    //       }),
-    //       {
-    //         headers: {
-    //           "Content-Type": "application/json",
-    //         },
-    //       }
-    //     );
-    //     if (userLogin.status == 200) {
-    //       localStorage.setItem("access_token", userLogin.data);
-    //       this.state.isAuthen = true;
-    //       this.state.access_token = userLogin.data;
-
-    //       await this.dispatch('getBalance');
-    //       await this.dispatch('getTransactionHistory');
-    //       Swal.fire("Login Success", "", "success");
-    //       router.push("/home");
-    //     }
-    //   } catch (e: any) {
-    //     Swal.fire("Login Fail", "Authenticator Failed", "error");
-    //   }
-    // }, 
+        let points = await axios.get(
+          "http://localhost:3000/cluster/points",
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (points.status == 200) {
+            this.state.clusterPoints = points.data.clusters;
+        }
+      } catch (e: any) {
+        // Swal.fire("Login Fail", "Authenticator Failed", "error");
+      }
+    }, 
 }
 })
