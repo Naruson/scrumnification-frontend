@@ -57,33 +57,33 @@ function buy(_id){
                 <thead>
                     <tr class="row tr-head" style="background-color: #0052D4; color: rgb(255, 255, 255); ">
                         <th class="col">No.</th>
-                        <th class="col">Name</th>
-                        <th class="col">Price</th>
-                        <th class="col">Action</th>
+                        <th class="col-3">Name</th>
+                        <th class="col-3">Price</th>
+                        <th class="col-3">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr class="row" v-for="(item, index) in shopStore.state.shopList" :key="item._id">
-                    <td class="col">{{ index+1 }}</td>
-                    <td class="col">{{ item.name }}</td>
-                    <td class="col">{{ item.point }}</td>
-                    <td @click="buy(item._id)" class="btn-grad col" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
+                    <td class="col-3">{{ index+1 }}</td>
+                    <td class="col-3">{{ item.name }}</td>
+                    <td class="col-3">{{ item.point }}</td>
+                    <td @click="buy(item._id)" class="btn-grad" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
                 </tr>
                 </tbody>
             </table>
             <table v-if="role !== 'leader'" class="table table-hover">
                 <thead>
                     <tr class="row tr-head" style="background-color: #0052D4; color: rgb(255, 255, 255); ">
-                        <th class="col">No.</th>
-                        <th class="col">Name</th>
-                        <th class="col">Price</th>
+                        <th class="col-4">No.</th>
+                        <th class="col-5">Name</th>
+                        <th class="col-3">Price</th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr class="row" v-for="(item, index) in shopStore.state.shopList" :key="item._id">
-                    <td class="col">{{ index+1 }}</td>
-                    <td class="col">{{ item.name }}</td>
-                    <td class="col">{{ item.point }}</td>
+                    <td class="col-4">{{ index+1 }}</td>
+                    <td class="col-5">{{ item.name }}</td>
+                    <td class="col-3">{{ item.point }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -97,8 +97,8 @@ function buy(_id){
 .btn-notification{
     text-align: center;
     padding-top: 10px;
-    /* margin-top: 64px; */
-    /* margin-right: 32px; */
+    margin-top: 64px;
+    margin-right: 32px;
     
     /* padding-top: 10px; */
     /* ButtonDetailCluster */
@@ -123,18 +123,17 @@ function buy(_id){
     min-height: 100px;
     max-height: 1000px;
     overflow: auto;
-    border-style: solid;
     border-width: 2px;
     background-clip: padding-box;
-    border-color: #0052D4;
-    background-color: rgb(255, 255, 255);
-    border-radius: 15px;
     flex-direction: column-reverse;
     /* display: flex; */
     justify-content: center;
     padding-right: 50px;
     min-height: 600px;
-    position: relative;
+
+    background: #FFFFFF;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
             
     }
 .font{
@@ -181,6 +180,7 @@ function buy(_id){
 }
          
 .btn-grad {
+    
     background-image: linear-gradient(to right, #0052D4 0%, #6ECEF3  100%);
     margin: 10px;
     /* padding: 15px 45px; */
@@ -196,7 +196,7 @@ function buy(_id){
     display: flex;
     justify-self: left;
     align-items: center;
-        
+
     }
 
 .btn-grad:hover {
