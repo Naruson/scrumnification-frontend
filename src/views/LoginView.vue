@@ -61,7 +61,7 @@ function login(){
 <div>
   <div class="split left">
   <div class="centered">
-      <img id="icon" src="../assets/icon/Pink_Elegant_Lash_Makeup_Brow_artist_Beauty_Logo__1_-removebg-preview.png">
+      <img id="icon" src="../assets/icon/Icon.png">
   </div>
 </div>
 
@@ -71,14 +71,14 @@ function login(){
         <form class="login-form">
           <div class="fontColor" style="font-size: 600%; text-align: center;">Login</div>
           <div style="font-weight: bold; margin-top: 10%;">Username:</div>
-          <input type="text" class="boxInputText" placeholder="username" v-model="username"/><br>
+          <input type="text" class="boxInputText" placeholder="" v-model="username"/><br>
           <div style="font-weight: bold; margin-top: 20%;">Password:</div>
-          <input type="password" class="boxInputText" placeholder="password" v-model="password"/><br>
+          <input type="password" class="boxInputText" placeholder="" v-model="password"/><br>
           <router-link to="/home">
               <!-- <button @click="loginAdmin()">login Admin</button>
               <button @click="loginLeader()">login Leader</button>
               <button @click="loginCoach()">login Coach</button> -->
-            <button class="buttomColorLogin" style="margin-top: 20%;" @click="login()"><div style="color: white;">login</div></button>
+            <button class="buttomColorLogin" style="margin-top: 20%;" @click="login()"><div style="color: white;">Login</div></button>
           </router-link>
               <!-- <p class="message">ขี้เกียจ login? <router-link to="/home" >Click me</router-link></p> -->
         </form>
@@ -164,7 +164,6 @@ function login(){
 
 .centered img {
   width: 150px;
-  border-radius: 50%;
 }
 .center{
   display: block;
@@ -174,8 +173,8 @@ function login(){
 
 #icon{
   display: block;
-  width: 140%;
-  margin-left: -20%;
+  width: 100%;
+  margin-left: auto;;
   margin-right: auto;
   margin-top: 80%;
   /* width: 50%; */
@@ -203,6 +202,7 @@ backdrop-filter: blur(150px);
 }
 
 .boxInputText{
+  font-size: 140%;
   border-radius: 10px; 
   width: 100%;
   border-color: #5151F2;
@@ -211,7 +211,7 @@ backdrop-filter: blur(150px);
 .buttomColorLogin{
   font-size: 30px;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 20px;
   border-color: rgb(145,234,228);
   border-color: linear-gradient(90deg, rgba(145,234,228,1) 0%, rgba(101,199,247,1) 50%, rgba(0,82,212,1) 100%);
   background: rgb(145,234,228);
