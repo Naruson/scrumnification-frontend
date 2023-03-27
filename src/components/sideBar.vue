@@ -7,7 +7,6 @@ function clickClusterSideBar(){
 }
 function logout(){
   localStorage.setItem('isAuthen','false');
-  localStorage.clear();
 }
 </script>
 <template>

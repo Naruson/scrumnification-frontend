@@ -56,7 +56,7 @@ function buy(_id){
             <table v-if="role === 'leader'" class="table table-hover" >
                 <thead>
                     <tr class="row tr-head" style="background-color: #0052D4; color: rgb(255, 255, 255); ">
-                        <th class="col">No.</th>
+                        <th class="col-3">No.</th>
                         <th class="col-3">Name</th>
                         <th class="col-3">Price</th>
                         <th class="col-3">Action</th>
@@ -67,7 +67,10 @@ function buy(_id){
                     <td class="col-3">{{ index+1 }}</td>
                     <td class="col-3">{{ item.name }}</td>
                     <td class="col-3">{{ item.point }}</td>
-                    <td @click="buy(item._id)" class="btn-grad" type="button"><i class="bi bi-cart3 icon-shop"></i>Buy</td>
+                    <td @click="buy(item._id)" class="col-3" type="button">
+                            <i class="bi bi-cart3 icon-shop"></i>Buy
+                    </td>
+                    
                 </tr>
                 </tbody>
             </table>
@@ -180,25 +183,12 @@ function buy(_id){
 }
          
 .btn-grad {
-    
     background-image: linear-gradient(to right, #0052D4 0%, #6ECEF3  100%);
-    margin: 10px;
-    /* padding: 15px 45px; */
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;            
-    box-shadow: 0 0 20px #eee;
-    border-radius: 25px;
-    width: 100px;
+    width: 15%;
     height: 40px;
-    display: flex;
-    justify-self: left;
-    align-items: center;
-
-    }
-
+    border-radius: 10px;
+    align-content: center;
+}
 .btn-grad:hover {
             background-position: right center; /* change the direction of the change here */
             color: #fff;
