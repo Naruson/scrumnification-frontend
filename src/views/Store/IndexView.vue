@@ -97,8 +97,8 @@ function buy(_id){
 .btn-notification{
     text-align: center;
     padding-top: 10px;
-    margin-top: 64px;
-    margin-right: 32px;
+    /* margin-top: 64px; */
+    /* margin-right: 32px; */
     
     /* padding-top: 10px; */
     /* ButtonDetailCluster */
@@ -134,6 +134,7 @@ function buy(_id){
     justify-content: center;
     padding-right: 50px;
     min-height: 600px;
+    position: relative;
             
     }
 .font{

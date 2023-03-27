@@ -20,7 +20,6 @@ onMounted(() => {
                 <th scope="col">No.</th>
                 <th scope="col">task name</th>
                 <th scope="col">point</th>
-                <th scope="col">action</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,12 +27,6 @@ onMounted(() => {
                 <th scope="row">{{ index+1 }}</th>
                 <td>{{ item.name }}</td>
                 <td>{{item.point  }}</td>
-                <td>
-                    <div class="div flex">
-                        <button class="btn btn-primary">primary</button>
-                        <button class="btn btn-danger">danger</button>
-                    </div>
-                </td>
                 </tr>
             </tbody>
             </table>

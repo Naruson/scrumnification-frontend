@@ -14,7 +14,7 @@ function logout(){
   <div class="invi">
         <div id="my-div" class="bg-scrum sidenav stretch d-flex flex-column flex-shrink-0 p-3 bg-light">
     <router-link to="/home" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-      <img id="icon" src="../assets/icon/Pink_Elegant_Lash_Makeup_Brow_artist_Beauty_Logo__1_-removebg-preview.png">
+      <img id="icon" class="mr-1" src="@/assets/icon/image.png">
       <!-- <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use>       
       </svg> -->
 
