@@ -56,7 +56,7 @@ onMounted(() => {
     /* white */
 
     background: #FFFFFF;
-    border: 1px solid #0052D4;
+    /* border: 1px solid #0052D4; */
     box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
